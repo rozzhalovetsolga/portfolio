@@ -73,7 +73,27 @@
 
   /* шапка */
 
-  .hero { display: grid; gap: 18px; }
+  .hero {
+    display: grid;
+    grid-template-columns: 176px minmax(0, 1fr);
+    gap: 30px;
+    align-items: start;
+  }
+
+  .portrait {
+    width: 176px;
+    height: 224px;
+    object-fit: cover;
+    object-position: 50% 18%;
+    display: block;
+  }
+
+  .intro { display: grid; gap: 18px; }
+
+  @media (max-width: 620px) {
+    .hero { grid-template-columns: 1fr; gap: 22px; }
+    .portrait { width: 136px; height: 172px; }
+  }
 
   .kicker {
     font-size: 12.5px;
@@ -221,6 +241,36 @@
 
   .quotes .who { font-size: 13px; color: var(--muted); }
 
+  /* скриншоты отзывов */
+
+  .shots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(108px, 1fr));
+    gap: 12px;
+  }
+
+  .shot {
+    display: grid;
+    gap: 7px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 11.5px;
+    line-height: 1.35;
+  }
+
+  .shot img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: 50% 12%;
+    display: block;
+    border: 1px solid var(--line);
+  }
+
+  .shot:hover img { border-color: var(--accent); }
+
+  .shots-note { font-size: 12.5px; color: var(--muted); }
+
   /* контакты */
 
   .links { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
@@ -244,10 +294,13 @@
 <div class="page">
 
   <header class="hero">
+    <img class="portrait" src="photo-olga.jpg" alt="Ольга" width="900" height="1350">
+    <div class="intro">
     <p class="kicker">Бизнес-ассистент · правая рука руководителя</p>
     <h1>Беру на себя операционку, процессы и людей</h1>
     <p class="lead">Меня зовут Ольга. Пять лет я работаю бизнес-ассистентом у директоров и предпринимателей, последние полтора года руковожу проектом разработки трейдинг-бота в BCH Labs. Здесь собрано, где я работала, за что отвечала и что умею делать сама.</p>
     <p class="facts">5 лет ассистентства, полтора из них в IT · Минск · онлайн, офлайн и смешанный формат</p>
+    </div>
   </header>
 
   <section>
@@ -424,6 +477,16 @@
         <p class="who">Клиент, психологические группы · 17 ноября 2024</p>
       </li>
     </ul>
+
+    <div class="shots">
+      <a class="shot" href="review-ctexpress.jpg"><img src="review-ctexpress.jpg" alt="Скриншот отзыва руководителя онлайн-школы CT-EXPRESS" loading="lazy" width="800" height="1313"><span>CT-EXPRESS</span></a>
+      <a class="shot" href="review-infobiz.jpg"><img src="review-infobiz.jpg" alt="Скриншот отзыва руководителя проекта в инфобизнесе" loading="lazy" width="800" height="1313"><span>Инфобизнес</span></a>
+      <a class="shot" href="review-asya.jpg"><img src="review-asya.jpg" alt="Скриншот сообщения от Аси Тарасовой" loading="lazy" width="800" height="1313"><span>Ася Тарасова</span></a>
+      <a class="shot" href="review-etico.jpg"><img src="review-etico.jpg" alt="Скриншот отзыва основателя студии ETICO.BY" loading="lazy" width="800" height="1313"><span>ETICO.BY</span></a>
+      <a class="shot" href="review-psy.jpg"><img src="review-psy.jpg" alt="Скриншот благодарности клиента психологических групп" loading="lazy" width="800" height="1313"><span>Психологические группы</span></a>
+    </div>
+
+    <p class="shots-note">Скриншоты сторис — по клику открывается полный размер.</p>
   </section>
 
   <footer>
