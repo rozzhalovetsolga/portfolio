@@ -27,7 +27,7 @@
     --serif: "Spectral", Georgia, "Times New Roman", serif;
 
     --step: 30px;
-    --gutter: 170px;
+    --gutter: 200px;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -127,7 +127,7 @@
   .portrait {
     display: block;
     width: 100%;
-    max-width: var(--gutter);
+    max-width: 240px;
     aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: 50% 18%;
@@ -234,11 +234,16 @@
 
   .quotes blockquote p + p { margin-top: 14px; }
 
+  .row.wide { grid-template-columns: var(--gutter) minmax(0, 1fr); }
+
+  @media (max-width: 759px) {
+    .row.wide { grid-template-columns: minmax(0, 1fr); }
+  }
+
   .shots {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
-    gap: 14px;
-    margin-top: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 20px;
   }
 
   .shot { border-bottom: 0; display: grid; gap: 7px; }
@@ -258,8 +263,8 @@
 
   .shot span {
     font-family: var(--mono);
-    font-size: 11.5px;
-    line-height: 16px;
+    font-size: 12.5px;
+    line-height: 18px;
     font-variant-numeric: normal;
     color: var(--muted);
   }
@@ -283,8 +288,8 @@
     <div>
       <p class="kicker mono">Бизнес-ассистент · правая рука руководителя</p>
       <h1>Беру на себя операционку, процессы и людей</h1>
-      <p class="lead">Меня зовут Ольга. Пять лет я работаю бизнес-ассистентом у директоров и предпринимателей, последние полтора года руковожу проектом разработки трейдинг-бота в BCH&nbsp;Labs. Здесь собрано, где я работала, за что отвечала и что умею делать сама.</p>
-      <p class="mono">5 лет ассистентства, полтора из них в IT · Минск · онлайн, офлайн и смешанный формат</p>
+      <p class="lead">Меня зовут Ольга. Больше пяти лет я работаю бизнес-ассистентом в разных нишах — у директоров и предпринимателей, — последние полтора года руковожу проектом разработки трейдинг-бота в BCH&nbsp;Labs. Здесь собрано, где я работала, за что отвечала и что умею делать сама.</p>
+      <p class="mono">5+ лет ассистентства, полтора из них в IT · Минск · онлайн, офлайн и смешанный формат</p>
     </div>
   </header>
 
@@ -442,8 +447,7 @@
         <p class="side mono"><b>Инфобизнес</b>руководитель<br>проекта</p>
         <blockquote>
           <p>«Я с тобой довольно плотно работал в течение 3–4 месяцев по большому количеству задач: бронирование студий, организация встреч, бронирование отелей и квартир в разных городах и странах с отбором под высокие критерии, организация съёмок и прямых трансляций, съёмка и монтаж видеоуроков и контента для Instagram, поиск и структурирование информации по ТЗ, живые съёмки контента в реальном времени на встречах.</p>
-          <p>К каждой задаче ты относилась очень ответственно и серьёзно. Часто серьёзнее и ответственнее, чем я сам. Глубоко изучала всю информацию, делала отличную подготовку. Изучала инструменты глубже, чем я знаю их сам, чтобы результат был лучше, чем я ожидал. Мне не хватало технических знаний — ты же их осваивала и применяла, что очень ценно.</p>
-          <p>Единственное — рекомендация тебе учиться реально оценивать своё время, силы и эмоциональное состояние. Ты порой неадекватно оцениваешь эти «параметры», набираешь на короткий промежуток времени много задач, из-за чего смещаются дедлайны. В остальном работой с тобой я очень сильно доволен и буду в будущем точно под некоторые задачи к тебе обращаться.»</p>
+          <p>К каждой задаче ты относилась очень ответственно и серьёзно. Часто серьёзнее и ответственнее, чем я сам. Глубоко изучала всю информацию, делала отличную подготовку. Изучала инструменты глубже, чем я знаю их сам, чтобы результат был лучше, чем я ожидал. Мне не хватало технических знаний — ты же их осваивала и применяла, что очень ценно. Работой с тобой я очень сильно доволен и буду в будущем точно под некоторые задачи к тебе обращаться.»</p>
         </blockquote>
       </div>
 
@@ -468,13 +472,12 @@
         </blockquote>
       </div>
 
-      <div class="row">
+      <div class="row wide">
         <p class="side mono">скриншоты</p>
         <div>
           <div class="shots">
             <a class="shot" href="review-ctexpress.jpg"><img src="review-ctexpress.jpg" alt="Скриншот отзыва руководителя онлайн-школы CT-EXPRESS" loading="lazy" width="800" height="1313"><span>CT-EXPRESS</span></a>
-            <a class="shot" href="review-infobiz.jpg"><img src="review-infobiz.jpg" alt="Скриншот отзыва руководителя проекта в инфобизнесе" loading="lazy" width="800" height="1313"><span>Инфобизнес, 1</span></a>
-            <a class="shot" href="review-infobiz-2.jpg"><img src="review-infobiz-2.jpg" alt="Скриншот второй части отзыва руководителя проекта в инфобизнесе" loading="lazy" width="800" height="1313"><span>Инфобизнес, 2</span></a>
+            <a class="shot" href="review-infobiz.jpg"><img src="review-infobiz.jpg" alt="Скриншот отзыва руководителя проекта в инфобизнесе" loading="lazy" width="800" height="1313"><span>Инфобизнес</span></a>
             <a class="shot" href="review-asya.jpg"><img src="review-asya.jpg" alt="Скриншот сообщения от Аси Тарасовой" loading="lazy" width="800" height="1313"><span>Ася Тарасова</span></a>
             <a class="shot" href="review-etico.jpg"><img src="review-etico.jpg" alt="Скриншот отзыва основателя студии ETICO.BY" loading="lazy" width="800" height="1313"><span>ETICO.BY</span></a>
             <a class="shot" href="review-psy.jpg"><img src="review-psy.jpg" alt="Скриншот благодарности клиента психологических групп" loading="lazy" width="800" height="1313"><span>Психогруппы</span></a>
