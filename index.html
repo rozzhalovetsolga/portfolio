@@ -122,16 +122,31 @@
 
   /* шапка */
 
-  .hero { padding-bottom: calc(var(--step) * 1.5); }
+  .hero {
+    padding-bottom: calc(var(--step) * 1.5);
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 0 40px;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 260px minmax(0, 1fr); gap: 0 30px; }
+  }
+
+  @media (max-width: 759px) {
+    .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  }
 
   .portrait {
     display: block;
     width: 100%;
-    max-width: 240px;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
-    object-position: 50% 18%;
+    object-position: 50% 20%;
     border-radius: 4px;
+  }
+
+  @media (max-width: 759px) {
+    .portrait { max-width: 320px; }
   }
 
   .hero h1 {
