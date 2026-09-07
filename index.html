@@ -151,13 +151,14 @@
 
   .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 232px;
-    gap: 40px;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 44px;
     align-items: center;
-    padding-bottom: 44px;
+    padding-bottom: 48px;
   }
 
-  @media (max-width: 767px) { .hero { grid-template-columns: minmax(0, 1fr); gap: 26px; } }
+  @media (max-width: 979px) { .hero { grid-template-columns: minmax(0, 1fr) 270px; gap: 32px; } }
+  @media (max-width: 767px) { .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
 
   .hero h1 {
     font-size: clamp(36px, 6.4vw, 56px);
@@ -173,23 +174,22 @@
 
   .portrait {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
-    object-position: 50% 18%;
-    border-radius: var(--r);
-    border: 1px solid var(--line);
+    object-position: 50% 20%;
+    border-radius: 14px;
+    border: 1px solid var(--line-hi);
     display: block;
   }
 
-  @media (max-width: 767px) { .portrait { max-width: 200px; aspect-ratio: 1 / 1; } }
+  @media (max-width: 767px) { .portrait { max-width: 320px; } }
 
   /* карточки цифр */
 
   .facts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(196px, 1fr));
     gap: 10px;
-    padding-bottom: 12px;
   }
 
   .fact {
@@ -213,7 +213,20 @@
     margin-bottom: 5px;
   }
 
-  .fact span { font-size: 13.5px; line-height: 1.45; color: var(--muted); }
+  .fact span { display: block; font-size: 13.5px; line-height: 1.45; color: var(--ink-dim); }
+
+  .fact i {
+    display: block;
+    margin-top: 9px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 10.5px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
 
   /* разделы */
 
@@ -377,14 +390,21 @@
     <img class="portrait" src="photo-olga.jpg" alt="Ольга Розжаловец" width="900" height="1350">
   </header>
 
-  <div class="facts">
-    <div class="fact"><b>5+ лет</b><span>бизнес-ассистент у директоров и предпринимателей</span></div>
-    <div class="fact"><b>5 ниш</b><span>от онлайн-школы и стройки до блокчейн-разработки</span></div>
-    <div class="fact"><b>107 → 2</b><span>воронка найма Rust Tech Lead: тимлид и middle+</span></div>
-    <div class="fact"><b>0,7 дня</b><span>медианный цикл моего pull request, 92 смерджено</span></div>
-    <div class="fact"><b>35 панелей</b><span>в пяти дашбордах Grafana на SQL</span></div>
-    <div class="fact"><b>0,5%</b><span>ложных срабатываний в разметке кошельков</span></div>
-  </div>
+  <section id="results">
+    <div class="head">
+      <h2>Результаты в цифрах</h2>
+      <p>Что именно сделано и в каком проекте. Подробности — в разделе «Опыт» ниже.</p>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><b>5+ лет</b><span>бизнес-ассистент у директоров и предпринимателей</span><i>весь опыт</i></div>
+      <div class="fact"><b>5 ниш</b><span>образование, инфобизнес, премиальный ремонт, психогруппы, IT</span><i>весь опыт</i></div>
+      <div class="fact"><b>107 → 2</b><span>анкет в воронке и найма по роли Rust Tech Lead: тимлид и middle+</span><i>BCH Labs · найм</i></div>
+      <div class="fact"><b>0,7 дня</b><span>медианный цикл моего pull request, 92 смерджено за 11 месяцев</span><i>BCH Labs · разработка</i></div>
+      <div class="fact"><b>35 панелей</b><span>в пяти дашбордах Grafana, метрики считаются на SQL</span><i>BCH Labs · данные</i></div>
+      <div class="fact"><b>0,5%</b><span>ложных срабатываний в разметке кошельков после кросс-проверки</span><i>BCH Labs · данные</i></div>
+    </div>
+  </section>
 
   <section>
     <div class="head">
