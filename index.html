@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Ольга Розжаловец — data analyst, project manager, business assistant. Кейсы, воронка найма, дашборды, отзывы.">
+<meta name="description" content="Ольга Розжаловец — data analyst, project manager, business assistant. Резюме, кейсы, воронка найма, отзывы.">
 <style>
   html { color-scheme: dark; }
   img { max-width: 100%; }
@@ -234,6 +234,42 @@
   .head h2 { font-size: clamp(23px, 3vw, 29px); line-height: 1.15; }
   .head p { color: var(--muted); font-size: 15.5px; max-width: 62ch; }
 
+  /* резюме */
+
+  .cv { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; }
+
+  .cv-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    padding: 18px;
+    display: grid;
+    align-content: start;
+    gap: 8px;
+    transition: border-color .18s;
+  }
+
+  .cv-card:hover { border-color: var(--line-hi); }
+
+  .cv-card h3 { font-size: 15.5px; }
+  .cv-card p { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+  .cv-card .files { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+
+  .file {
+    display: inline-flex;
+    align-items: center;
+    height: 30px;
+    padding: 0 12px;
+    border: 1px solid var(--line-hi);
+    border-radius: 9999px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink);
+    transition: border-color .18s, color .18s, background .18s;
+  }
+
+  .file:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-tint); }
+
   /* навыки */
 
   .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 10px; }
@@ -399,6 +435,40 @@
       <div class="fact"><b>0,7 дня</b><span>медианный цикл моего pull request, 92 смерджено за 11 месяцев</span><i>BCH Labs · разработка</i></div>
       <div class="fact"><b>35 панелей</b><span>в пяти дашбордах Grafana, метрики считаются на SQL</span><i>BCH Labs · данные</i></div>
       <div class="fact"><b>0,5%</b><span>ложных срабатываний в разметке кошельков после кросс-проверки</span><i>BCH Labs · данные</i></div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <div class="head">
+      <h2>Резюме</h2>
+      <p>Три версии под разные роли — содержание одно и то же, акценты разные. PDF для быстрого просмотра, DOCX если нужно править.</p>
+    </div>
+
+    <div class="cv">
+      <div class="cv-card">
+        <h3>Аналитик данных</h3>
+        <p>SQL в ClickHouse и PostgreSQL, Python и ML, дашборды, работа с историческими данными.</p>
+        <div class="files">
+          <a class="file" href="olga-resume-bigdata.pdf">PDF</a>
+          <a class="file" href="olga-resume-bigdata.docx">DOCX</a>
+        </div>
+      </div>
+      <div class="cv-card">
+        <h3>Проджект-менеджер</h3>
+        <p>Спринты и дейлики, метрики цикла поставки, найм в команду, решения на данных.</p>
+        <div class="files">
+          <a class="file" href="olga-resume-pm.pdf">PDF</a>
+          <a class="file" href="olga-resume-pm.docx">DOCX</a>
+        </div>
+      </div>
+      <div class="cv-card">
+        <h3>IT-рекрутер</h3>
+        <p>Воронка найма на инженерные роли, структурированные интервью, скоринговые карты.</p>
+        <div class="files">
+          <a class="file" href="olga-resume-recruiter.pdf">PDF</a>
+          <a class="file" href="olga-resume-recruiter.docx">DOCX</a>
+        </div>
+      </div>
     </div>
   </section>
 
