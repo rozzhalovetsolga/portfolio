@@ -151,13 +151,13 @@
 
   .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 196px;
+    grid-template-columns: 196px minmax(0, 1fr);
     gap: 36px;
     align-items: center;
     padding-bottom: 46px;
   }
 
-  @media (max-width: 979px) { .hero { grid-template-columns: minmax(0, 1fr) 168px; gap: 28px; } }
+  @media (max-width: 979px) { .hero { grid-template-columns: 168px minmax(0, 1fr); gap: 28px; } }
   @media (max-width: 767px) { .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
 
   .hero h1 {
@@ -373,6 +373,7 @@
   </div>
 
   <header class="hero">
+    <img class="portrait" src="photo-olga.jpg" alt="Ольга Розжаловец" width="900" height="1350">
     <div>
       <p class="eyebrow">Data Analyst · Project Manager · Business Assistant</p>
       <h1>Ольга Розжаловец</h1>
@@ -385,7 +386,6 @@
         <a class="pill" href="https://linkedin.com/in/olga-rozzhalovets52967a2a3">LinkedIn</a>
       </div>
     </div>
-    <img class="portrait" src="photo-olga.jpg" alt="Ольга Розжаловец" width="900" height="1350">
   </header>
 
   <section id="results">
