@@ -3,545 +3,602 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Портфолио Ольги Розжаловец: аналитик данных, руководитель проекта, бизнес-ассистент — ClickHouse, PostgreSQL, Python, Grafana, спринты, найм.">
+<meta name="description" content="Ольга Розжаловец — data analyst, project manager, business assistant. Кейсы, воронка найма, дашборды, отзывы.">
 <style>
-  html { color-scheme: light dark; }
+  html { color-scheme: dark; }
   img { max-width: 100%; }
   [hidden] { display: none !important; }
 </style>
 <title>Ольга Розжаловец</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap&subset=cyrillic,latin">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
   :root {
-    --paper: #e3e2de;
-    --ink: #333331;
-    --ink-quiet: #575653;
-    --muted: #878682;
-    --rule: #b4b3af;
-    --hair: #bbbab6;
-    --shade: #d7d6d2;
+    --bg: #0b0b0d;
+    --bg-deep: #08080a;
+    --card: #15151a;
+    --card-hi: #1b1b22;
+    --line: rgba(255, 255, 255, 0.09);
+    --line-hi: rgba(255, 255, 255, 0.16);
+    --ink: #f7f7f8;
+    --ink-dim: #c8c8d0;
+    --muted: #7d7d8c;
+    --accent: #ff664d;
+    --accent-deep: #e84125;
+    --accent-tint: rgba(255, 102, 77, 0.12);
+    --accent-glow: rgba(232, 65, 37, 0.22);
 
-    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
-    --serif: "Spectral", Georgia, "Times New Roman", serif;
+    --sans: "Onest", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
 
-    --step: 30px;
-    --gutter: 200px;
+    --r: 12px;
+    --r-sm: 8px;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #1c1c1a;
-      --ink: #dcdbd6;
-      --ink-quiet: #b5b4ae;
-      --muted: #8b8a85;
-      --rule: #454440;
-      --hair: #56554f;
-      --shade: #262624;
-    }
-  }
-
-  :root[data-theme="dark"] {
-    --paper: #1c1c1a;
-    --ink: #dcdbd6;
-    --ink-quiet: #b5b4ae;
-    --muted: #8b8a85;
-    --rule: #454440;
-    --hair: #56554f;
-    --shade: #262624;
+  :root[data-theme="light"] {
+    --bg: #ffffff;
+    --bg-deep: #f4f4f5;
+    --card: #f8f8f9;
+    --card-hi: #f2f2f4;
+    --line: rgba(9, 9, 11, 0.10);
+    --line-hi: rgba(9, 9, 11, 0.18);
+    --ink: #09090b;
+    --ink-dim: #3f3f46;
+    --muted: #71717a;
+    --accent: #d93a1e;
+    --accent-deep: #b82f16;
+    --accent-tint: rgba(217, 58, 30, 0.10);
+    --accent-glow: rgba(217, 58, 30, 0.10);
   }
 
   body {
     margin: 0;
-    background: var(--paper);
+    background: var(--bg);
     color: var(--ink);
-    font-family: var(--serif);
+    font-family: var(--sans);
     font-size: 16px;
-    line-height: 26px;
-    font-variant-numeric: oldstyle-nums;
+    line-height: 1.62;
+    letter-spacing: -0.005em;
     -webkit-font-smoothing: antialiased;
   }
 
-  @media (min-width: 760px) {
-    body { font-size: 18px; line-height: var(--step); }
+  .glow {
+    position: absolute;
+    top: -220px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1100px, 130%);
+    height: 620px;
+    background: radial-gradient(closest-side, var(--accent-glow), transparent 72%);
+    pointer-events: none;
+    z-index: 0;
   }
 
   .wrap {
-    max-width: 1000px;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 40px 25px 90px;
+    padding: 28px 20px 96px;
   }
 
-  @media (min-width: 760px) {
-    .wrap { padding: 60px 40px 120px; }
-  }
+  @media (min-width: 760px) { .wrap { padding: 36px 32px 120px; } }
 
-  h1, h2, h3, p, ul, ol, dl, blockquote, figure { margin: 0; padding: 0; font-weight: 400; }
+  h1, h2, h3, p, ul, blockquote { margin: 0; padding: 0; }
+  h1, h2, h3 { font-weight: 600; letter-spacing: -0.03em; }
   ul { list-style: none; }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px solid var(--hair);
-    transition: color .25s ease-out, border-color .25s ease-out;
-  }
-
-  a:hover { color: var(--ink); border-color: var(--ink); font-style: italic; }
-  a:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--ink); }
+  a:focus-visible { outline: 1px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
   .mono {
     font-family: var(--mono);
-    font-size: 12.5px;
-    line-height: 22px;
-    font-variant-numeric: normal;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0;
     color: var(--muted);
   }
 
-  @media (min-width: 760px) {
-    .mono { font-size: 13.5px; line-height: 26px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
 
-  /* строка с полем слева: в поле уходят даты, сроки и подписи */
+  /* верхняя строка */
 
-  .row {
-    display: grid;
-    grid-template-columns: var(--gutter) minmax(0, 60ch);
-    gap: 0 30px;
-    align-items: start;
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 44px;
   }
 
-  .side { text-align: right; }
+  .topbar .who { font-family: var(--mono); font-size: 12.5px; color: var(--ink-dim); }
 
-  .side b { display: block; font-weight: 500; color: var(--ink-quiet); }
-
-  @media (max-width: 759px) {
-    .row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
-    .side { text-align: left; }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 34px;
+    padding: 0 14px;
+    border: 1px solid var(--line-hi);
+    border-radius: 9999px;
+    background: var(--card);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 12px;
+    transition: border-color .18s, background .18s, color .18s;
   }
+
+  .pill:hover { border-color: var(--accent); color: var(--accent); }
+
+  .pill-solid {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #14100e;
+    font-weight: 500;
+  }
+
+  .pill-solid:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: #fff; }
 
   /* шапка */
 
   .hero {
-    padding-bottom: calc(var(--step) * 1.5);
-    grid-template-columns: 340px minmax(0, 1fr);
-    gap: 0 40px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 232px;
+    gap: 40px;
+    align-items: center;
+    padding-bottom: 44px;
   }
 
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 260px minmax(0, 1fr); gap: 0 30px; }
-  }
-
-  @media (max-width: 759px) {
-    .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  }
-
-  .portrait {
-    display: block;
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    object-position: 50% 20%;
-    border-radius: 4px;
-  }
-
-  @media (max-width: 759px) {
-    .portrait { max-width: 320px; }
-  }
+  @media (max-width: 767px) { .hero { grid-template-columns: minmax(0, 1fr); gap: 26px; } }
 
   .hero h1 {
-    font-size: 28px;
-    line-height: 34px;
-    margin-bottom: var(--step);
-    max-width: 30ch;
+    font-size: clamp(36px, 6.4vw, 56px);
+    line-height: 1.03;
+    margin: 14px 0 16px;
   }
 
-  @media (min-width: 760px) {
-    .hero h1 { font-size: 38px; line-height: 46px; }
+  .hero .lead { font-size: clamp(16.5px, 2vw, 19px); color: var(--ink-dim); max-width: 54ch; }
+
+  .hero .meta { margin-top: 16px; }
+
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+
+  .portrait {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: 50% 18%;
+    border-radius: var(--r);
+    border: 1px solid var(--line);
+    display: block;
   }
 
-  .hero .lead { margin-bottom: var(--step); }
+  @media (max-width: 767px) { .portrait { max-width: 200px; aspect-ratio: 1 / 1; } }
 
-  .kicker { margin-bottom: 14px; }
+  /* карточки цифр */
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+    gap: 10px;
+    padding-bottom: 12px;
+  }
+
+  .fact {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    padding: 15px 16px 17px;
+    transition: border-color .18s, background .18s;
+  }
+
+  .fact:hover { border-color: var(--line-hi); background: var(--card-hi); }
+
+  .fact b {
+    display: block;
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.25;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 5px;
+  }
+
+  .fact span { font-size: 13.5px; line-height: 1.45; color: var(--muted); }
 
   /* разделы */
 
-  section {
-    border-top: 1px solid var(--rule);
-    padding-top: calc(var(--step) - 4px);
-    padding-bottom: calc(var(--step) * 1.5);
+  section { padding-top: 56px; }
+
+  .head { display: grid; gap: 10px; margin-bottom: 24px; }
+  .head h2 { font-size: clamp(23px, 3vw, 29px); line-height: 1.15; }
+  .head p { color: var(--muted); font-size: 15.5px; max-width: 62ch; }
+
+  /* навыки */
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 10px; }
+
+  .skill {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    padding: 17px 18px 19px;
   }
 
-  .head { margin-bottom: var(--step); }
-
-  .head h2 {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    line-height: 22px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: right;
-  }
-
-  @media (min-width: 760px) {
-    .head h2 { font-size: 13.5px; line-height: 26px; }
-  }
-
-  @media (max-width: 759px) {
-    .head h2 { text-align: left; }
-  }
-
-  .intro { color: var(--ink-quiet); }
-
-  /* чем занимаюсь */
-
-  .skills { display: grid; gap: var(--step); }
-
-  .skills h3 {
-    font-family: var(--mono);
-    font-size: 13.5px;
-    line-height: 26px;
-    font-weight: 500;
-    color: var(--ink);
-  }
+  .skill h3 { font-size: 15px; margin-bottom: 7px; }
+  .skill p { font-size: 14px; line-height: 1.55; color: var(--muted); }
 
   /* опыт */
 
-  .cases { display: grid; gap: calc(var(--step) * 1.5); }
+  .cases { display: grid; gap: 12px; }
 
-  .case h3 {
-    font-size: 21px;
-    line-height: 30px;
-    font-weight: 600;
-    margin-bottom: 4px;
+  .case {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    padding: 22px;
+    transition: border-color .18s;
+  }
+
+  .case:hover { border-color: var(--line-hi); }
+
+  @media (min-width: 760px) { .case { padding: 26px 28px; } }
+
+  .case-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 16px;
+    margin-bottom: 6px;
+  }
+
+  .case h3 { font-size: 19px; line-height: 1.25; }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--accent);
+    background: var(--accent-tint);
+    border-radius: 9999px;
+    padding: 3px 10px;
+    white-space: nowrap;
   }
 
   .case .where { margin-bottom: 14px; }
 
-  .case p + p { margin-top: 14px; }
+  .case p.body { font-size: 14.5px; line-height: 1.6; color: var(--ink-dim); }
+  .case p.body + p.body { margin-top: 10px; }
 
   .lab {
     font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 500;
-    font-variant-numeric: normal;
-    color: var(--ink);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-right: 8px;
   }
+
+  .case b { color: var(--ink); font-weight: 600; }
 
   /* о себе */
 
-  .about { display: grid; gap: var(--step); }
+  .about { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
 
-  .about b { font-weight: 600; }
-
-  .about p + p { margin-top: 8px; color: var(--ink-quiet); }
-
-  .bio {
-    color: var(--ink-quiet);
-    font-style: italic;
+  .note {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--accent);
+    border-radius: var(--r-sm);
+    padding: 16px 18px;
   }
+
+  .note b { display: block; font-size: 14.5px; font-weight: 600; margin-bottom: 6px; }
+  .note span { font-size: 13.5px; line-height: 1.55; color: var(--muted); }
 
   /* отзывы */
 
-  .quotes { display: grid; gap: calc(var(--step) * 1.5); }
+  .quotes { display: grid; gap: 12px; }
 
-  .quotes blockquote p + p { margin-top: 14px; }
-
-  .row.wide { grid-template-columns: var(--gutter) minmax(0, 1fr); }
-
-  @media (max-width: 759px) {
-    .row.wide { grid-template-columns: minmax(0, 1fr); }
+  .quote {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    padding: 22px;
   }
 
-  .shots {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    gap: 20px;
-  }
+  @media (min-width: 760px) { .quote { padding: 24px 28px; } }
 
-  .shot { border-bottom: 0; display: grid; gap: 7px; }
+  .quote p { font-size: 15px; line-height: 1.62; color: var(--ink-dim); }
+  .quote p + p { margin-top: 0.7em; }
 
+  .quote .who { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 14px; align-items: baseline; }
+  .quote .who b { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--ink); }
+  .quote .who span { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+
+  .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 12px; }
+  .shot { display: grid; gap: 8px; }
   .shot img {
     width: 100%;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: 50% 12%;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--line);
     display: block;
-    border-radius: 4px;
-    transition: transform .3s;
+    transition: border-color .18s, transform .25s;
   }
+  .shot:hover img { border-color: var(--accent); transform: translateY(-2px); }
+  .shot span { font-family: var(--mono); font-size: 11px; color: var(--muted); }
 
-  .shot:hover { font-style: normal; }
-  .shot:hover img { transform: scale(1.03); }
+  /* подвал */
 
-  .shot span {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    line-height: 18px;
-    font-variant-numeric: normal;
-    color: var(--muted);
-  }
+  footer { padding-top: 56px; }
 
-  .note { margin-top: 14px; }
+  .contacts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 
-  /* контакты */
+  .sign { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--line); }
 
-  footer { border-top: 1px solid var(--rule); padding-top: calc(var(--step) - 4px); }
-
-  .contacts { display: grid; gap: 8px; }
-
-  .contacts .row { align-items: baseline; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
+<div class="glow" aria-hidden="true"></div>
+
 <div class="wrap">
 
-  <header class="hero row">
-    <img class="portrait" src="photo-olga.jpg" alt="Ольга" width="900" height="1350">
+  <div class="topbar">
+    <p class="who">Ольга Розжаловец — портфолио</p>
+    <a class="pill" href="https://t.me/bolik_olik">Telegram</a>
+  </div>
+
+  <header class="hero">
     <div>
-      <p class="kicker mono">Ольга Розжаловец · Минск</p>
-      <h1>Аналитик данных, руководитель проекта, бизнес-ассистент</h1>
-      <p class="lead">Больше пяти лет я работаю бизнес-ассистентом в разных нишах — у директоров и предпринимателей. Полтора года вела проект разработки трейдинг-бота на блокчейне Solana в BCH&nbsp;Labs: собирала спринты и проводила дейлики, нанимала людей в команду и сама работала с данными — SQL в ClickHouse и PostgreSQL, анализ на Python, дашборды в Grafana. Здесь собрано, где я работала, за что отвечала и что умею делать сама.</p>
-      <p class="mono">1,5 года с данными и управлением проектом · 5+ лет ассистентства · английский B1 · онлайн, офлайн и смешанный формат</p>
+      <p class="eyebrow">Data Analyst · Project Manager · Business Assistant</p>
+      <h1>Ольга Розжаловец</h1>
+      <p class="lead">Пять лет закрываю операционку, найм и данные там, где у руководителя не хватает рук. Последние полтора года вела проект блокчейн-разработки: спринты и дейлики, найм в инженерную команду, SQL и дашборды.</p>
+      <p class="meta mono">Минск · онлайн и офлайн · английский B1</p>
+      <div class="cta">
+        <a class="pill pill-solid" href="https://t.me/bolik_olik">Написать в Telegram</a>
+        <a class="pill" href="mailto:oljadamovna@gmail.com">Почта</a>
+        <a class="pill" href="https://github.com/rozzhalovetsolga">GitHub</a>
+        <a class="pill" href="https://linkedin.com/in/olga-rozzhalovets52967a2a3">LinkedIn</a>
+      </div>
     </div>
+    <img class="portrait" src="photo-olga.jpg" alt="Ольга Розжаловец" width="900" height="1350">
   </header>
 
+  <div class="facts">
+    <div class="fact"><b>5+ лет</b><span>бизнес-ассистент у директоров и предпринимателей</span></div>
+    <div class="fact"><b>5 ниш</b><span>от онлайн-школы и стройки до блокчейн-разработки</span></div>
+    <div class="fact"><b>107 → 2</b><span>воронка найма Rust Tech Lead: тимлид и middle+</span></div>
+    <div class="fact"><b>0,7 дня</b><span>медианный цикл моего pull request, 92 смерджено</span></div>
+    <div class="fact"><b>35 панелей</b><span>в пяти дашбордах Grafana на SQL</span></div>
+    <div class="fact"><b>0,5%</b><span>ложных срабатываний в разметке кошельков</span></div>
+  </div>
+
   <section>
-    <div class="head row"><h2>Чем занимаюсь</h2><p class="intro">Семь групп задач, которые я веду целиком: от постановки до результата, без промежуточного контроля со стороны руководителя.</p></div>
+    <div class="head">
+      <h2>Что умею</h2>
+      <p>Семь групп задач, которые веду целиком — от постановки до результата.</p>
+    </div>
 
     <div class="skills">
-      <div class="row">
-        <h3 class="side">Данные<br>и аналитика</h3>
-        <p>SQL в ClickHouse и PostgreSQL: выборки и агрегации, подзапросы и CTE, оконные функции, миграции и DDL, оптимизация тяжёлых запросов. Python для анализа: pandas, numpy, LightGBM, scikit-learn. Дашборды и панели в Grafana на SQL, настройка через API. Работа с историческими данными: репарсинг, бэкфилл пропущенных периодов, проверка качества данных.</p>
+      <div class="skill">
+        <h3>Данные</h3>
+        <p>SQL в ClickHouse и PostgreSQL: оконные функции, CTE, миграции и DDL, оптимизация тяжёлых запросов. Python: pandas, numpy, LightGBM, scikit-learn. Дашборды в Grafana через API. Репарсинг и бэкфилл истории.</p>
       </div>
-      <div class="row">
-        <h3 class="side">Организация<br>и операционка</h3>
-        <p>Вебинары и эфиры: анонсы, техническая подготовка, запуск, поддержка в прямом эфире. Учебные группы и чаты: модерация, раздача материалов, контроль оплат. Мероприятия под ключ: приглашения, регистрация, сертификаты. Документооборот и платежи по проекту. GetCourse, Zoom, Notion.</p>
+      <div class="skill">
+        <h3>Проект</h3>
+        <p>Недельные спринты, ежедневные созвоны, статус по срокам и рискам для руководителя. Документация и планирование в Notion.</p>
       </div>
-      <div class="row">
-        <h3 class="side">Проект<br>и команда</h3>
-        <p>Недельные спринты: сбор задач, приоритеты, сроки, разбор итогов. Ежедневные созвоны и мониторинг прогресса по каждому исполнителю. Статусы для руководителя — картину по срокам и рискам собираю я. Договорённости внутри команды, обратная связь, адаптация новичков. Документация и планирование в Notion.</p>
+      <div class="skill">
+        <h3>Найм</h3>
+        <p>Полный цикл: анкета, скрининг, структурированное интервью, скоринговая карта с порогом, оффер, онбординг. Технические роли оцениваю сама.</p>
       </div>
-      <div class="row">
-        <h3 class="side">Найм<br>и подрядчики</h3>
-        <p>Полный цикл найма в IT-команду: описание вакансии, анкета кандидата, скрининг, интервью, решение. Пишу сценарии этапов и оценочные чеклисты с баллами и порогом прохождения, чтобы решение не зависело от впечатления. Для офлайна — подбор бригад и мастеров на объекты. Ввод в работу и адаптация.</p>
+      <div class="skill">
+        <h3>Операционка</h3>
+        <p>Вебинары и эфиры под ключ, учебные группы и чаты, мероприятия, контроль оплат, документооборот и платежи. GetCourse, Zoom.</p>
       </div>
-      <div class="row">
-        <h3 class="side">Контент</h3>
-        <p>Монтаж Reels, съёмка и монтаж онлайн-курса с текстовой визуализацией, фотоконтент для сторис, съёмка встреч и мероприятий. Обложки, календари, картинки к постам и заданиям. Ведение Instagram проекта. Canva, Illustrator, CapCut.</p>
+      <div class="skill">
+        <h3>Деньги</h3>
+        <p>Просчёт смет, закупки, снабжение объектов, контроль поставок.</p>
       </div>
-      <div class="row">
-        <h3 class="side">Документы<br>и методички</h3>
-        <p>Обучающие методички по процессам — от учебных заданий до строительно-отделочных работ. Инструкции и регламенты, которые снимают с руководителя повторяющиеся объяснения. Творческие задания для отработки учебного материала.</p>
+      <div class="skill">
+        <h3>Контент</h3>
+        <p>Съёмка и монтаж курсов и Reels, фотоконтент, обложки и сертификаты, ведение Instagram проекта. Canva, Illustrator, CapCut.</p>
       </div>
-      <div class="row">
-        <h3 class="side">Личные<br>поручения</h3>
-        <p>Оплатить, перевести, напечатать, забрать, передать. Аренда фотостудии, жилья, площадок. Договориться и согласовать там, где нужен живой человек. Общение с клиентами и партнёрами. Офлайн-логистика по Минску.</p>
+      <div class="skill">
+        <h3>Документы</h3>
+        <p>Обучающие методички, инструкции и регламенты, которые снимают с руководителя повторяющиеся объяснения.</p>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="head row"><h2>Опыт</h2><p class="intro">В хронологическом порядке — от первой работы в 11 классе до проекта в блокчейн-разработке. Ниши разные: онлайн-образование, инфобизнес, премиальный ремонт, психологические группы, IT. Работа одна: держать процесс и людей, пока руководитель занят своим. В последнем проекте к этому добавились данные и найм.</p></div>
+    <div class="head">
+      <h2>Опыт</h2>
+      <p>В хронологическом порядке — от первой работы в 11 классе до проекта в блокчейн-разработке.</p>
+    </div>
 
     <div class="cases">
 
-      <article class="case row">
-        <p class="side mono"><b>2,5 года</b>первая работа,<br>с 11 класса</p>
-        <div>
+      <article class="case">
+        <div class="case-top">
           <h3>CT-EXPRESS: онлайн-школа подготовки к ЦТ</h3>
-          <p class="where mono">школьники 9–11 классов · онлайн и офлайн · 7,3 тыс. подписчиков у проекта</p>
-          <p><span class="lab">Задачи.</span> Ведение учебных групп и чатов, помощь в создании заданий для проработки материала, визуал: картинки к постам, календари, приглашения, сертификаты. Организация мероприятий и подарков к ним, контент для учебных марафонов. Первое ведение Instagram проекта.</p>
-          <p><span class="lab">Результат.</span> Было: один предмет и первые запуски платных учебных групп. Стало: обучение по трём предметам — русский, биология, английский, — запущенный контент в Instagram и выросшая бесплатная группа.</p>
-          <p><span class="lab">Роль.</span> Постоянный ассистент — весь операционный слой школы, кроме преподавания.</p>
+          <span class="tag">2,5 года · первая работа</span>
         </div>
+        <p class="where mono">школьники 9–11 классов · 7,3 тыс. подписчиков у проекта</p>
+        <p class="body"><span class="lab">Делала</span>Вела учебные группы и чаты, помогала собирать задания, готовила визуал: картинки к постам, календари, приглашения, сертификаты. Организовывала мероприятия. Запустила и вела Instagram проекта.</p>
+        <p class="body"><span class="lab">Результат</span><b>Школа выросла с одного предмета до трёх</b> — русский, биология, английский. Появился работающий контент-канал, выросла бесплатная группа.</p>
       </article>
 
-      <article class="case row">
-        <p class="side mono"><b>3–4 месяца</b>во время<br>магистратуры</p>
-        <div>
+      <article class="case">
+        <div class="case-top">
           <h3>Инфобизнес: блог и онлайн-курс</h3>
-          <p class="where mono">плотная загрузка 3–4 часа в день · онлайн и офлайн</p>
-          <p><span class="lab">Задачи.</span> Съёмки инфокурса, поиск и бронирование студий, визуализация курса в Canva, монтаж в CapCut. Съёмка и монтаж Reels и постов для блога. Организация мероприятий: место, оповещение, встреча гостей, фотосъёмка. Поиск и структурирование информации по ТЗ, бронирование отелей и квартир под жёсткие критерии, личные поручения руководителя.</p>
-          <p><span class="lab">Результат.</span> Было: курс существовал только на бумаге. Стало: упакованный и смонтированный курс, готовый к запуску, с материалами для домашних заданий. Сам запуск в зону ответственности не входил.</p>
-          <p><span class="lab">Роль.</span> Ассистент по контенту и продакшену: от бронирования студии до готового смонтированного материала.</p>
+          <span class="tag">3–4 месяца</span>
         </div>
+        <p class="where mono">плотная загрузка 3–4 часа в день · онлайн и офлайн</p>
+        <p class="body"><span class="lab">Делала</span>Организовала съёмки курса, смонтировала его в CapCut и собрала визуализацию в Canva. Снимала и монтировала Reels для блога. Бронировала студии, отели и квартиры под жёсткие критерии заказчика, искала и структурировала информацию по ТЗ.</p>
+        <p class="body"><span class="lab">Результат</span><b>Курс из состояния «на бумаге» доведён до готового к запуску</b>: упакован, смонтирован, с материалами для домашних заданий.</p>
       </article>
 
-      <article class="case row">
-        <p class="side mono"><b>1,5 года</b>Минск,<br>премиальный ремонт</p>
-        <div>
+      <article class="case">
+        <div class="case-top">
           <h3>ETICO.BY: студия премиального ремонта</h3>
-          <p class="where mono">квартиры и загородные дома · около 5 объектов в работе одновременно, от 1 до 5 мастеров на объекте · у студии 120+ реализованных проектов · <a href="https://etico.by">etico.by</a></p>
-          <p><span class="lab">Задачи.</span> Просчёт смет, снабжение объектов материалами, найм работников и подбор бригад, общение с клиентами. Коммуникация с мастерами на объектах, обучающие методички по производству строительно-отделочных работ, платежи и документы.</p>
-          <p><span class="lab">Роль.</span> Помогала основателю вести объекты: сметы, снабжение, найм и документы были на мне, последнее слово оставалось за ним, объекты посещала только вместе с ним. Премиальный сегмент, где ошибка в смете или срыв поставки сразу видны заказчику.</p>
+          <span class="tag">1,5 года · Минск</span>
         </div>
+        <p class="where mono">до 5 объектов одновременно, 1–5 мастеров на объекте · у студии 120+ проектов · <a href="https://etico.by">etico.by</a></p>
+        <p class="body"><span class="lab">Делала</span>Считала сметы, снабжала объекты материалами, нанимала работников и подбирала бригады, вела клиентов и мастеров, платежи и документы. Составила методички по производству строительно-отделочных работ.</p>
+        <p class="body"><span class="lab">Роль</span>Правая рука основателя: <b>деньги, люди и материалы были на мне</b>, решения оставались за ним. Премиальный сегмент, где ошибка в смете или срыв поставки видны заказчику сразу.</p>
       </article>
 
-      <article class="case row">
-        <p class="side mono"><b>1,5 года</b>параллельно<br>с ETICO.BY</p>
-        <div>
+      <article class="case">
+        <div class="case-top">
           <h3>Психологические группы: техническое ведение</h3>
-          <p class="where mono">психолог Андрей Боарин, <a href="https://instagram.com/andrei_boarin">@andrei_boarin</a> · 31,2 тыс. подписчиков · онлайн</p>
-          <p><span class="lab">Задачи.</span> Техническое ведение групп: раздача материалов участникам, модерация чатов, контроль оплат, работа с GetCourse и Zoom.</p>
-          <p><span class="lab">Роль.</span> Технический ассистент ведущего: участники вовремя получали материалы и доступы, за ведущим оставалось только содержание работы.</p>
+          <span class="tag">1,5 года · параллельно</span>
         </div>
+        <p class="where mono">психолог Андрей Боарин, <a href="https://instagram.com/andrei_boarin">@andrei_boarin</a> · 31,2 тыс. подписчиков</p>
+        <p class="body"><span class="lab">Делала</span>Вела группы технически: GetCourse и Zoom, раздача материалов, модерация чатов, контроль оплат. <b>За ведущим оставалось только содержание работы.</b></p>
       </article>
 
-      <article class="case row">
-        <p class="side mono"><b>1,5 года</b>март 2025 —<br>сентябрь 2026</p>
-        <div>
+      <article class="case">
+        <div class="case-top">
           <h3>BCH Labs: трейдинг-бот на блокчейне Solana</h3>
-          <p class="where mono">команда до 5 человек: DevOps, ML-инженер, Rust-разработчики · недельные спринты · ClickHouse, PostgreSQL, Python, Grafana, Notion</p>
-          <p><span class="lab">Управление проектом.</span> Собирала недельные спринты: сбор и декомпозиция задач, приоритеты, сроки, разбор итогов. Проводила ежедневные созвоны и отслеживала прогресс по каждому исполнителю. Статус проекта для руководителя — по срокам, рискам и упирающимся задачам — собирала я, а не он. Вся документация и планирование велись в Notion.</p>
-          <p><span class="lab">Данные и аналитика.</span> Отвечала за хранилище исторических данных, на котором считаются признаки, бэктесты и метрики: структура таблиц, репарсинг сырых транзакций в события, дозагрузка пропущенных периодов. Писала SQL и миграции в ClickHouse и PostgreSQL. Собрала и вела дашборды в Grafana: анализ торговой сессии (15 панелей), paper-trading overview (10), здоровье рынка (10) — метрики считались запросами к базе, конфигурация велась через API. Построила SQL-пайплайн классификации кошельков и признаки к нему (win rate, profit factor, композитный skill score); кросс-проверка разметки через внешний REST API показала лишь 0,5% ложных срабатываний. Отдельно — витрина рыночных метрик: срезы по эпохам, гистограммы распределений, метрики по площадкам.</p>
-          <p><span class="lab">Найм.</span> Вела найм в команду от вакансии до решения. По вакансии Rust Tech Lead провела воронку: 107 заполненных анкет, около 35 лайфкодинг-интервью, 9 кандидатов на следующем этапе, 3 оффера, 2 найма — один вышел тимлидом, второй разработчиком уровня middle+. Конверсия из анкеты в интервью — 33%, из интервью в следующий этап — 26%, из оффера в найм — 67%. Составила анкеты кандидатов на две роли — Lead Rust Engineer и ML Engineer — и собрала их как формы через Google Apps Script. Написала сценарий первого этапа: лайфкодинг на 40 минут с таймингом для интервьюера и целью «увидеть, как человек рассуждает», а не «решил или нет». К нему — оценочный чеклист с баллами и проходным порогом, который заполняется во время звонка. Для собеседования проджект-менеджера подготовила блок вопросов, отделяющих реальную ответственность от формулировок резюме.</p>
-          <p><span class="lab">Разработка.</span> Освоила Rust с нуля и участвовала в продакшн-коде бота: читала код, понимала содержание задач и разговаривала с разработчиками на их языке, а не только сверяла сроки.</p>
+          <span class="tag">1,5 года · март 2025 — сентябрь 2026</span>
         </div>
+        <p class="where mono">команда до 5 человек: DevOps, ML-инженер, Rust-разработчики · ClickHouse, PostgreSQL, Python, Grafana, Notion</p>
+        <p class="body"><span class="lab">Проект</span>Собирала недельные спринты, проводила дейлики, отслеживала прогресс по каждому исполнителю. <b>Статус по срокам и рискам готовила я, а не руководитель.</b></p>
+        <p class="body"><span class="lab">Найм</span>Вела найм от вакансии до выхода человека. По роли Rust Tech Lead: <b>107 анкет → 35 лайфкодинг-интервью → 9 финалистов → 3 оффера → 2 найма</b>, один вышел тимлидом, второй разработчиком middle+. Анкеты развернула кодом через Apps Script, интервью — 40 минут с таймингом по этапам, решение — по карте на 100 баллов с порогом 65.</p>
+        <p class="body"><span class="lab">Данные</span>Отвечала за хранилище истории, на котором считаются признаки и бэктесты: структура таблиц, репарсинг транзакций, дозагрузка периодов. Писала SQL и миграции. Собрала <b>пять дашбордов, 35 панелей</b>. Построила SQL-пайплайн классификации кошельков с признаками win rate, profit factor и skill score — кросс-проверка через внешний API дала <b>0,5% ложных срабатываний</b>. Сделала витрину рыночных метрик по эпохам.</p>
+        <p class="body"><span class="lab">Решения</span><b>Закрыла четыре гипотезы роста доходности количественно</b> — включая A/B/C/D-тест параметров исполнения. Команда не потратила месяцы на ложные направления.</p>
+        <p class="body"><span class="lab">Код</span>Освоила Rust с нуля и участвовала в продакшн-коде: читала код и понимала содержание задач, а не только сверяла сроки.</p>
       </article>
 
     </div>
   </section>
 
   <section>
-    <div class="head row"><h2>О себе</h2><p class="intro">Пять эпизодов не из резюме — они объясняют, как я работаю, когда никто не стоит над душой.</p></div>
+    <div class="head">
+      <h2>Образование и курсы</h2>
+      <p>Профильное образование — географическое, с математической обработкой измерений. Аналитику добирала курсом и практикой.</p>
+    </div>
+
+    <div class="cases">
+      <article class="case">
+        <div class="case-top">
+          <h3>Аналитик данных с нуля</h3>
+          <span class="tag">2026 · BELHARD</span>
+        </div>
+        <p class="where mono">12 занятий, онлайн · сертификат об окончании</p>
+        <p class="body">SQL: JOIN, агрегации, подзапросы и CTE, оконные функции, retention и скользящие средние. Статистика, проверка гипотез и A/B-тесты. Python для анализа и визуализации. Дашборды в BI и ИИ в аналитических задачах.</p>
+      </article>
+
+      <article class="case">
+        <div class="case-top">
+          <h3>Магистр географических наук</h3>
+          <span class="tag">2017 — 2023 · БГУ</span>
+        </div>
+        <p class="where mono">факультет географии и геоинформатики, кафедра геодезии и космоаэрокартографии</p>
+        <p class="body">Картографо-геодезическая деятельность, специалист; магистратура — землеустройство, кадастры, геодезия, картография, геоматика. Преподавала картографические дисциплины на факультете, работала картографом и редактором на картографическом предприятии.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <h2>О себе</h2>
+      <p>Четыре эпизода не из резюме — они объясняют, как я работаю, когда никто не стоит над душой.</p>
+    </div>
 
     <div class="about">
-      <div class="row">
-        <p class="side mono"><b>Rust</b>с нуля</p>
-        <div>
-          <p><b>Пришла в блокчейн-разработку из картографии и выучила Rust — язык, на котором пишет моя команда.</b></p>
-          <p>Мне мало вести календарь проекта: я разбираюсь в предмете, поэтому вижу, из чего на самом деле состоит задача и почему сдвигается срок. Так же было с учебной программой и со сметами на отделку.</p>
-        </div>
+      <div class="note">
+        <b>Rust с нуля</b>
+        <span>Пришла в блокчейн-разработку из картографии и выучила язык, на котором пишет команда. Мне мало вести календарь проекта: я разбираюсь в предмете, поэтому вижу, из чего состоит задача и почему сдвигается срок.</span>
       </div>
-      <div class="row">
-        <p class="side mono"><b>19 → 91</b>балл на ЦТ</p>
-        <div>
-          <p><b>За год подняла результат ЦТ по русскому с 19 до 91 балла и поступила в ведущий вуз страны.</b></p>
-          <p>Десять лет в школе я занималась музыкой и олимпиадами по географии, а не подготовкой к тестам. Разрыв закрыла дисциплиной и режимом — так же закрываю рабочие задачи, к которым не было готового навыка.</p>
-        </div>
+      <div class="note">
+        <b>19 → 91 балл на ЦТ за год</b>
+        <span>Подняла результат по русскому и поступила в ведущий вуз страны. Разрыв закрыла дисциплиной и режимом — так же закрываю задачи, к которым не было готового навыка.</span>
       </div>
-      <div class="row">
-        <p class="side mono"><b>3 работы</b>одновременно</p>
-        <div>
-          <p><b>Полтора года совмещала обязательную отработку по распределению и два ассистентства.</b></p>
-          <p>Студия ремонта, психологические группы и основная работа шли параллельно, каждая со своим ритмом и своими людьми. Это про планирование и жёсткий учёт собственной загрузки.</p>
-        </div>
+      <div class="note">
+        <b>Три работы одновременно</b>
+        <span>Полтора года совмещала обязательную отработку по распределению и два ассистентства: студия ремонта, психологические группы и основная работа — каждая со своим ритмом и своими людьми.</span>
       </div>
-      <div class="row">
-        <p class="side mono"><b>60 дней</b>без пропусков</p>
-        <div>
-          <p><b>Утренний бег с подъёмом в 5:45, дистанция от 3 до 11 километров.</b></p>
-          <p>Каждый день с публичной отчётностью. Это про предсказуемость: если я взяла задачу, её не нужно перепроверять.</p>
-        </div>
-      </div>
-      <div class="row">
-        <p class="side mono"><b>1 продукт</b>с нуля</p>
-        <div>
-          <p><b>Из своего хобби собрала и провела онлайн-марафон по бегу.</b></p>
-          <p>Идея, набор участников, программа, ведение. Поэтому я вижу за задачей продукт и предлагаю решения, а не только исполняю.</p>
-        </div>
-      </div>
-      <div class="row">
-        <p class="side mono">до ассистентства</p>
-        <p class="bio">Магистр географических наук. Преподавала картографические дисциплины на факультете географии и геоинформатики БГУ, работала картографом и редактором на картографическом предприятии — оттуда привычка к точности и к тому, что работа не закрыта, пока не сведён последний фрагмент.</p>
+      <div class="note">
+        <b>60 дней бега без пропусков</b>
+        <span>Подъём в 5:45, от 3 до 11 километров, с публичной отчётностью. Это про предсказуемость: если я взяла задачу, её не нужно перепроверять. Из этого же хобби собрала свой первый инфопродукт — онлайн-марафон.</span>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="head row"><h2>Образование<br>и курсы</h2><p class="intro">Профильное образование — географическое, с математической обработкой измерений и ГИС. Аналитику данных добирала курсом и практикой в проекте.</p></div>
-
-    <div class="cases">
-      <article class="case row">
-        <p class="side mono"><b>2026</b>Образовательный<br>центр BELHARD</p>
-        <div>
-          <h3>Аналитик данных с нуля</h3>
-          <p class="where mono">12 занятий, онлайн, практика на реальных кейсах · сертификат об окончании</p>
-          <p><span class="lab">Программа.</span> SQL: выборки, JOIN всех типов, группировка и агрегации, HAVING, подзапросы и CTE, оконные функции, расчёт retention и скользящих средних. Статистический анализ, проверка гипотез и A/B-тестирование. Python для обработки, анализа и визуализации данных. Дашборды в BI-системах и применение ИИ в аналитических задачах.</p>
-        </div>
-      </article>
-
-      <article class="case row">
-        <p class="side mono"><b>2017 — 2023</b>БГУ, Минск</p>
-        <div>
-          <h3>Магистр географических наук</h3>
-          <p class="where mono">факультет географии и геоинформатики, кафедра геодезии и космоаэрокартографии</p>
-          <p><span class="lab">Специальность.</span> Картографо-геодезическая деятельность, специалист; магистратура — землеустройство, кадастры, геодезия, картография, геоматика. Математическая обработка измерений, статистика, ГИС.</p>
-        </div>
-      </article>
+    <div class="head">
+      <h2>Отзывы</h2>
+      <p>Руководители и клиенты — своими словами, из переписок и сторис.</p>
     </div>
-  </section>
-
-  <section>
-    <div class="head row"><h2>Отзывы</h2><p class="intro">Руководители и клиенты — своими словами, из переписок и сторис.</p></div>
 
     <div class="quotes">
 
-      <div class="row">
-        <p class="side mono"><b>ETICO.BY</b>основатель студии,<br>22 декабря 2024</p>
-        <blockquote>
-          <p>«Почему каждый месяц ты выбираешь работать со мной? Я продолжаю работать, так как знаю, что ты очень редкий человек, с которым мне комфортно, и я знаю, что за этими "рамками", как ты говоришь, есть большое количество черт: честность, вежливость, готовность помочь, развитие, цели, дисциплина, выдержка границ личного пространства и уважение друг друга. И в работе ты очень хороший коллега, на которого можно действительно положиться и доверить. Знаю, что ты доведёшь некоторые задачи, порой очень сложные, без меня и без ответов, которые тебе очень нужны.»</p>
-        </blockquote>
+      <div class="quote">
+        <p>«Почему каждый месяц ты выбираешь работать со мной? Я продолжаю работать, так как знаю, что ты очень редкий человек, с которым мне комфортно, и я знаю, что за этими "рамками", как ты говоришь, есть большое количество черт: честность, вежливость, готовность помочь, развитие, цели, дисциплина, выдержка границ личного пространства и уважение друг друга. И в работе ты очень хороший коллега, на которого можно действительно положиться и доверить. Знаю, что ты доведёшь некоторые задачи, порой очень сложные, без меня и без ответов, которые тебе очень нужны.»</p>
+        <p class="who"><b>Основатель студии ETICO.BY</b><span>премиальный ремонт · 22 декабря 2024</span></p>
       </div>
 
-      <div class="row">
-        <p class="side mono"><b>Инфобизнес</b>руководитель<br>проекта</p>
-        <blockquote>
-          <p>«Я с тобой довольно плотно работал в течение 3–4 месяцев по большому количеству задач: бронирование студий, организация встреч, бронирование отелей и квартир в разных городах и странах с отбором под высокие критерии, организация съёмок и прямых трансляций, съёмка и монтаж видеоуроков и контента для Instagram, поиск и структурирование информации по ТЗ, живые съёмки контента в реальном времени на встречах.</p>
-          <p>К каждой задаче ты относилась очень ответственно и серьёзно. Часто серьёзнее и ответственнее, чем я сам. Глубоко изучала всю информацию, делала отличную подготовку. Изучала инструменты глубже, чем я знаю их сам, чтобы результат был лучше, чем я ожидал. Мне не хватало технических знаний — ты же их осваивала и применяла, что очень ценно. Работой с тобой я очень сильно доволен и буду в будущем точно под некоторые задачи к тебе обращаться.»</p>
-        </blockquote>
+      <div class="quote">
+        <p>«К каждой задаче ты относилась очень ответственно и серьёзно. Часто серьёзнее и ответственнее, чем я сам. Глубоко изучала всю информацию, делала отличную подготовку. Изучала инструменты глубже, чем я знаю их сам, чтобы результат был лучше, чем я ожидал. Мне не хватало технических знаний — ты же их осваивала и применяла, что очень ценно. Работой с тобой я очень сильно доволен и буду в будущем точно под некоторые задачи к тебе обращаться.»</p>
+        <p class="who"><b>Руководитель проекта</b><span>инфобизнес</span></p>
       </div>
 
-      <div class="row">
-        <p class="side mono"><b>CT-EXPRESS</b>руководитель<br>онлайн-школы</p>
-        <blockquote>
-          <p>«Оля — очень ответственная, трудолюбивая и целеустремлённая девушка. Вместе придумывали творческие задания по русскому и биологии, разрабатывали дизайн, составляли тесты, проводили много времени вместе. Спасибо за прекрасное время совместной работы.»</p>
-        </blockquote>
+      <div class="quote">
+        <p>«Оля — очень ответственная, трудолюбивая и целеустремлённая девушка. Вместе придумывали творческие задания по русскому и биологии, разрабатывали дизайн, составляли тесты, проводили много времени вместе. Спасибо за прекрасное время совместной работы.»</p>
+        <p class="who"><b>Руководитель онлайн-школы</b><span>CT-EXPRESS</span></p>
       </div>
 
-      <div class="row">
-        <p class="side mono"><b>Ася Тарасова</b>инфобизнес,<br>22 декабря 2023</p>
-        <blockquote>
-          <p>«Оля, спасибо большое за работу! Завтра ещё активнее подключаемся, в выходные отдыхаем.»</p>
-        </blockquote>
+      <div class="quote">
+        <p>«Оля, спасибо большое за работу! Завтра ещё активнее подключаемся, в выходные отдыхаем.»</p>
+        <p class="who"><b>Ася Тарасова</b><span>инфобизнес · 22 декабря 2023</span></p>
       </div>
 
-      <div class="row">
-        <p class="side mono"><b>Психологические группы</b>клиент,<br>17 ноября 2024</p>
-        <blockquote>
-          <p>«Кстати, спасибо тебе огромное. Ты даже не понимаешь до конца, как ты мне помогаешь.»</p>
-        </blockquote>
+      <div class="quote">
+        <p>«Кстати, спасибо тебе огромное. Ты даже не понимаешь до конца, как ты мне помогаешь.»</p>
+        <p class="who"><b>Клиент</b><span>психологические группы · 17 ноября 2024</span></p>
       </div>
 
-      <div class="row wide">
-        <p class="side mono">скриншоты</p>
-        <div>
-          <div class="shots">
-            <a class="shot" href="review-ctexpress.jpg"><img src="review-ctexpress.jpg" alt="Скриншот отзыва руководителя онлайн-школы CT-EXPRESS" loading="lazy" width="800" height="1313"><span>CT-EXPRESS</span></a>
-            <a class="shot" href="review-infobiz.jpg"><img src="review-infobiz.jpg" alt="Скриншот отзыва руководителя проекта в инфобизнесе" loading="lazy" width="800" height="1313"><span>Инфобизнес</span></a>
-            <a class="shot" href="review-asya.jpg"><img src="review-asya.jpg" alt="Скриншот сообщения от Аси Тарасовой" loading="lazy" width="800" height="1313"><span>Ася Тарасова</span></a>
-            <a class="shot" href="review-etico.jpg"><img src="review-etico.jpg" alt="Скриншот отзыва основателя студии ETICO.BY" loading="lazy" width="800" height="1313"><span>ETICO.BY</span></a>
-            <a class="shot" href="review-psy.jpg"><img src="review-psy.jpg" alt="Скриншот благодарности клиента психологических групп" loading="lazy" width="800" height="1313"><span>Психогруппы</span></a>
-          </div>
-          <p class="note mono">По клику открывается полный размер.</p>
-        </div>
-      </div>
+    </div>
 
+    <div class="shots">
+      <a class="shot" href="review-ctexpress.jpg"><img src="review-ctexpress.jpg" alt="Отзыв руководителя онлайн-школы CT-EXPRESS" loading="lazy" width="800" height="1313"><span>CT-EXPRESS</span></a>
+      <a class="shot" href="review-infobiz.jpg"><img src="review-infobiz.jpg" alt="Отзыв руководителя проекта в инфобизнесе" loading="lazy" width="800" height="1313"><span>Инфобизнес</span></a>
+      <a class="shot" href="review-asya.jpg"><img src="review-asya.jpg" alt="Сообщение от Аси Тарасовой" loading="lazy" width="800" height="1313"><span>Ася Тарасова</span></a>
+      <a class="shot" href="review-etico.jpg"><img src="review-etico.jpg" alt="Отзыв основателя студии ETICO.BY" loading="lazy" width="800" height="1313"><span>ETICO.BY</span></a>
+      <a class="shot" href="review-psy.jpg"><img src="review-psy.jpg" alt="Благодарность клиента психологических групп" loading="lazy" width="800" height="1313"><span>Психогруппы</span></a>
     </div>
   </section>
 
   <footer>
-    <div class="contacts">
-      <div class="row"><p class="side mono">Telegram</p><p><a href="https://t.me/bolik_olik">@bolik_olik</a></p></div>
-      <div class="row"><p class="side mono">Телефон</p><p><a href="tel:+375292942182">+375 29 294-21-82</a></p></div>
-      <div class="row"><p class="side mono">LinkedIn</p><p><a href="https://linkedin.com/in/olga-rozzhalovets52967a2a3">olga-rozzhalovets</a></p></div>
-      <div class="row"><p class="side mono">GitHub</p><p><a href="https://github.com/rozzhalovetsolga">github.com/rozzhalovetsolga</a></p></div>
-      <div class="row"><p class="side mono">Instagram</p><p><a href="https://instagram.com/rozzhalovets.olga">@rozzhalovets.olga</a></p></div>
-      <div class="row"><p class="side mono">Почта</p><p><a href="mailto:oljadamovna@gmail.com">oljadamovna@gmail.com</a></p></div>
+    <div class="head">
+      <h2>Связаться</h2>
+      <p>Пишите в Telegram — отвечаю быстро. Минск, работаю и офлайн, и полностью дистанционно.</p>
     </div>
+
+    <div class="contacts">
+      <a class="pill pill-solid" href="https://t.me/bolik_olik">@bolik_olik</a>
+      <a class="pill" href="tel:+375292942182">+375 29 294-21-82</a>
+      <a class="pill" href="mailto:oljadamovna@gmail.com">oljadamovna@gmail.com</a>
+      <a class="pill" href="https://github.com/rozzhalovetsolga">github.com/rozzhalovetsolga</a>
+      <a class="pill" href="https://linkedin.com/in/olga-rozzhalovets52967a2a3">LinkedIn</a>
+    </div>
+
+    <p class="sign mono">Ольга Розжаловец · Минск · 2026</p>
   </footer>
 
 </div>
