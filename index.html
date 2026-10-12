@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Ольга Розжаловец — аналитик данных: SQL (PostgreSQL, ClickHouse), Python, дашборды, проверка гипотез. Резюме на русском и английском, проекты на реальных данных.">
+<meta name="description" content="Ольга Розжаловец — аналитик данных: SQL (PostgreSQL, ClickHouse), дашборды, проверка гипотез. Проекты на реальных данных с выводами и рекомендациями, резюме RU и EN.">
 <style>
   html { color-scheme: dark; }
   img { max-width: 100%; }
@@ -393,6 +393,45 @@
 
   .sign { margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--line); }
 
+
+  @media (min-width: 760px) { #results .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+  /* графики */
+  :root { --chart: #f2573d; }
+  :root[data-theme="light"] { --chart: #d93a1e; }
+
+  .figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin: 18px 0 16px; }
+  .fig { background: var(--bg-deep); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 16px 16px 12px; position: relative; }
+  .fig h4 { font-size: 14px; font-weight: 600; margin: 0 0 2px; letter-spacing: -0.01em; }
+  .fig .sub { font-size: 12.5px; color: var(--muted); margin: 0 0 14px; }
+  .fig .fig-note { font-size: 12.5px; color: var(--ink-dim); margin-top: 10px; }
+
+  .hbars { display: grid; gap: 12px; }
+  .hbar { display: grid; grid-template-columns: 92px minmax(0, 1fr) 40px; align-items: center; gap: 10px; font-size: 13px; color: var(--ink-dim); }
+  .hbar .track { height: 16px; border-left: 1px solid var(--line-hi); }
+  .hbar .fill { height: 100%; background: var(--chart); border-radius: 0 4px 4px 0; }
+  .hbar .val { font-family: var(--mono); font-size: 12.5px; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  .cols svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .cols .grid line { stroke: var(--line); stroke-width: 1; }
+  .cols text { font-family: var(--mono); font-size: 10.5px; fill: var(--muted); }
+  .cols text.lbl { fill: var(--ink); font-size: 11px; }
+  .cols .bar { fill: var(--chart); }
+  .cols .hit { fill: transparent; cursor: default; }
+  .cols .hit:hover + .bar, .cols g.col:hover .bar { opacity: .75; }
+  .tip { position: absolute; pointer-events: none; background: var(--card-hi); border: 1px solid var(--line-hi); border-radius: 6px; padding: 5px 8px; font-family: var(--mono); font-size: 11.5px; color: var(--ink); white-space: nowrap; transform: translate(-50%, -110%); }
+
+  details.data { margin-top: 10px; }
+  details.data summary { font-family: var(--mono); font-size: 11.5px; color: var(--muted); cursor: pointer; }
+  details.data table { border-collapse: collapse; margin-top: 8px; font-family: var(--mono); font-size: 11.5px; color: var(--ink-dim); }
+  details.data td, details.data th { padding: 2px 14px 2px 0; text-align: left; font-weight: 400; }
+
+  .case ul.pts { margin: 6px 0 0; display: grid; gap: 5px; }
+  .case ul.pts li { font-size: 14.5px; line-height: 1.55; color: var(--ink-dim); padding-left: 16px; position: relative; }
+  .case ul.pts li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 6px; height: 1px; background: var(--muted); }
+  .case h5 { font-size: 15px; font-weight: 600; margin: 18px 0 2px; letter-spacing: -0.01em; }
+  .case h5 + p.body { margin-top: 0; }
+
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -415,6 +454,7 @@
       <p class="meta mono">Минск · удалённо, гибрид, офис · готова к релокации и командировкам<br>английский B1 (Intermediate), сейчас целенаправленно подтягиваю до B2</p>
       <div class="cta">
         <a class="pill pill-solid" href="https://t.me/bolik_olik">Написать в Telegram</a>
+        <a class="pill" href="olga-resume-bigdata.pdf">Резюме PDF</a>
         <a class="pill" href="mailto:oljadamovna@gmail.com">Почта</a>
         <a class="pill" href="https://github.com/rozzhalovetsolga/analyst_portfolio">Проекты на GitHub</a>
         <a class="pill" href="https://www.linkedin.com/in/olga-rozzhalovets-52967a2a3">LinkedIn</a>
@@ -424,44 +464,155 @@
 
   <section id="results">
     <div class="head">
-      <h2>Результаты в цифрах</h2>
-      <p>Что именно сделано и в каком проекте. Подробности — в разделе «Опыт» ниже.</p>
+      <h2>Коротко в цифрах</h2>
+      <p>Работа с данными в BCH Labs и pet-проект на данных маркетплейса.</p>
     </div>
-
     <div class="facts">
-      <div class="fact"><b>1 год 6 мес</b><span>работы с данными: хранилище, SQL-пайплайны, дашборды, эксперименты</span><i>BCH Labs · данные</i></div>
-      <div class="fact"><b>35 панелей</b><span>в трёх дашбордах Grafana, все метрики считаются на SQL</span><i>BCH Labs · дашборды</i></div>
-      <div class="fact"><b>0,5%</b><span>ложных срабатываний в разметке кошельков после кросс-проверки внешним API</span><i>BCH Labs · данные</i></div>
-      <div class="fact"><b>4 гипотезы</b><span>роста доходности закрыты количественно, включая A/B/C/D-тест параметров исполнения</span><i>BCH Labs · эксперименты</i></div>
-      <div class="fact"><b>−2 балла</b><span>оценки из 5 даёт опоздание доставки: 4,29 против 2,27 на ~96 тыс. отзывов</span><i>Olist · pet-проект</i></div>
-      <div class="fact"><b>2,85%, а не 3,1%</b><span>настоящий repeat rate: одна корзина дробится на несколько заказов в одну секунду</span><i>Olist · pet-проект</i></div>
-      <div class="fact"><b>6 → 2</b><span>«плохих» продавца после устранения двойного подсчёта отзывов при JOIN</span><i>Olist · pet-проект</i></div>
-      <div class="fact"><b>в 2,4 раза</b><span>рост выручки год к году — сравнение одинаковых периодов нарастающим итогом</span><i>Olist · pet-проект</i></div>
-      <div class="fact"><b>7 лет 1 мес</b><span>общий стаж: данные, управление проектами, операционка, картография</span><i>весь опыт</i></div>
+      <div class="fact"><b>1 год 6 мес</b><span>работы с данными: хранилище, ETL, SQL-пайплайны, дашборды, эксперименты</span><i>BCH Labs</i></div>
+      <div class="fact"><b>35 панелей</b><span>в трёх дашбордах Grafana, все метрики считаются на SQL</span><i>BCH Labs</i></div>
+      <div class="fact"><b>4 гипотезы</b><span>роста доходности закрыты количественно, включая A/B/C/D-тест</span><i>BCH Labs</i></div>
+      <div class="fact"><b>−2 балла</b><span>оценки из 5 даёт опоздание доставки</span><i>Olist</i></div>
+      <div class="fact"><b>2,85%, а не 3,1%</b><span>настоящий repeat rate: одна корзина дробится на несколько заказов</span><i>Olist</i></div>
+      <div class="fact"><b>6 → 2</b><span>«плохих» продавца после устранения двойного подсчёта при JOIN</span><i>Olist</i></div>
     </div>
   </section>
 
-  <section id="cv">
+  <section id="projects">
     <div class="head">
-      <h2>Резюме</h2>
-      <p>Резюме аналитика данных: русская и английская версии, PDF, одна страница.</p>
+      <h2>Проекты</h2>
+      <p>Собственные исследования на реальных и открытых данных — от вопроса до рекомендации. Код и подробности — на <a href="https://github.com/rozzhalovetsolga/analyst_portfolio">GitHub</a>.</p>
     </div>
 
-    <div class="cv">
-      <div class="cv-card">
-        <h3>Data Analyst</h3>
-        <p>SQL в PostgreSQL и ClickHouse, Python, дашборды, хранилище и витрины, проверка гипотез. Pet-проект на данных маркетплейса Olist.</p>
-        <div class="files">
-          <a class="file" href="olga-resume-bigdata.pdf">PDF · RU</a>
-          <a class="file" href="olga-resume-bigdata-en.pdf">PDF · EN</a>
+    <div class="cases">
+
+      <article class="case">
+        <div class="case-top">
+          <h3><a href="https://github.com/rozzhalovetsolga/analyst_portfolio/tree/main/olist_sql">SQL-анализ маркетплейса Olist</a></h3>
+          <span class="tag">pet-проект · 2026 · в работе</span>
         </div>
-      </div>
+        <p class="where mono">~100 тыс. заказов · 9 связанных таблиц · PostgreSQL · CTE, оконные функции · весь SQL написан вручную</p>
+        <p class="body"><span class="lab">Вопрос</span>Почему покупатели бразильского маркетплейса почти не возвращаются и что в этом зависит от доставки, продавцов и регионов.</p>
+        <p class="body"><span class="lab">Данные</span>Спроектировала схему с ключами и нашла проблемы качества: неуникальный ID отзывов, неполный справочник категорий, доставленные заказы без даты доставки, обрыв выгрузки и корзины, раздробленные на несколько заказов. Каждую цифру проверяла вторым способом.</p>
+
+        <div class="figs">
+          <figure class="fig" style="margin:0">
+            <h4>Средняя оценка заказа</h4>
+            <p class="sub">по исходу доставки, шкала 1–5, ~96 тыс. отзывов</p>
+            <div class="hbars"><div class="hbar"><span>вовремя</span><div class="track"><div class="fill" style="width:85.8%"></div></div><span class="val">4,29</span></div><div class="hbar"><span>опоздал</span><div class="track"><div class="fill" style="width:45.4%"></div></div><span class="val">2,27</span></div><div class="hbar"><span>не доставлен</span><div class="track"><div class="fill" style="width:35.2%"></div></div><span class="val">1,76</span></div></div>
+            <p class="fig-note">Опоздание отнимает <b>2 балла</b>. А опоздания определяет запас в обещанном сроке по регионам, а не расстояние.</p>
+            <details class="data"><summary>таблица значений</summary><table><tr><td>вовремя</td><td>4,29</td></tr><tr><td>опоздал</td><td>2,27</td></tr><tr><td>не доставлен</td><td>1,76</td></tr></table></details>
+          </figure>
+          <figure class="fig cols" style="margin:0">
+            <h4>Выручка по месяцам</h4>
+            <p class="sub">доставленные заказы, товар + доставка, млн реалов</p>
+            <svg viewBox="0 0 380 210" role="img" aria-label="Выручка Olist по месяцам, январь 2017 — август 2018"><g class="grid"><line x1="30" x2="376" y1="186.0" y2="186.0"/><line x1="30" x2="376" y1="131.3" y2="131.3"/><line x1="30" x2="376" y1="76.7" y2="76.7"/><line x1="30" x2="376" y1="22.0" y2="22.0"/></g><text x="24" y="189.0" text-anchor="end">0</text><text x="24" y="134.3" text-anchor="end">0,4</text><text x="24" y="79.7" text-anchor="end">0,8</text><text x="24" y="25.0" text-anchor="end">1,2</text><g class="col" data-tip="январь 2017: 0,13 млн"><rect class="hit" x="30.0" y="22" width="17.3" height="164"/><path class="bar" d="M31.6,186.0 V172.6 Q31.6,168.6 35.6,168.6 H41.6 Q45.6,168.6 45.6,172.6 V186.0 Z"/></g><text x="38.6" y="202" text-anchor="middle">янв 17</text><g class="col" data-tip="февраль 2017: 0,27 млн"><rect class="hit" x="47.3" y="22" width="17.3" height="164"/><path class="bar" d="M48.9,186.0 V152.9 Q48.9,148.9 52.9,148.9 H58.9 Q62.9,148.9 62.9,152.9 V186.0 Z"/></g><g class="col" data-tip="март 2017: 0,41 млн"><rect class="hit" x="64.6" y="22" width="17.3" height="164"/><path class="bar" d="M66.2,186.0 V133.4 Q66.2,129.4 70.2,129.4 H76.2 Q80.2,129.4 80.2,133.4 V186.0 Z"/></g><g class="col" data-tip="апрель 2017: 0,39 млн"><rect class="hit" x="81.9" y="22" width="17.3" height="164"/><path class="bar" d="M83.6,186.0 V136.6 Q83.6,132.6 87.6,132.6 H93.6 Q97.6,132.6 97.6,136.6 V186.0 Z"/></g><g class="col" data-tip="май 2017: 0,57 млн"><rect class="hit" x="99.2" y="22" width="17.3" height="164"/><path class="bar" d="M100.9,186.0 V112.5 Q100.9,108.5 104.9,108.5 H110.9 Q114.9,108.5 114.9,112.5 V186.0 Z"/></g><g class="col" data-tip="июнь 2017: 0,49 млн"><rect class="hit" x="116.5" y="22" width="17.3" height="164"/><path class="bar" d="M118.2,186.0 V123.0 Q118.2,119.0 122.2,119.0 H128.2 Q132.2,119.0 132.2,123.0 V186.0 Z"/></g><g class="col" data-tip="июль 2017: 0,57 млн"><rect class="hit" x="133.8" y="22" width="17.3" height="164"/><path class="bar" d="M135.5,186.0 V112.6 Q135.5,108.6 139.5,108.6 H145.5 Q149.5,108.6 149.5,112.6 V186.0 Z"/></g><text x="142.5" y="202" text-anchor="middle">июл</text><g class="col" data-tip="август 2017: 0,65 млн"><rect class="hit" x="151.1" y="22" width="17.3" height="164"/><path class="bar" d="M152.8,186.0 V101.7 Q152.8,97.7 156.8,97.7 H162.8 Q166.8,97.7 166.8,101.7 V186.0 Z"/></g><g class="col" data-tip="сентябрь 2017: 0,70 млн"><rect class="hit" x="168.4" y="22" width="17.3" height="164"/><path class="bar" d="M170.1,186.0 V94.2 Q170.1,90.2 174.1,90.2 H180.1 Q184.1,90.2 184.1,94.2 V186.0 Z"/></g><g class="col" data-tip="октябрь 2017: 0,75 млн"><rect class="hit" x="185.7" y="22" width="17.3" height="164"/><path class="bar" d="M187.4,186.0 V87.3 Q187.4,83.3 191.4,83.3 H197.4 Q201.4,83.3 201.4,87.3 V186.0 Z"/></g><g class="col" data-tip="ноябрь 2017: 1,15 млн"><rect class="hit" x="203.0" y="22" width="17.3" height="164"/><path class="bar" d="M204.7,186.0 V32.4 Q204.7,28.4 208.7,28.4 H214.7 Q218.7,28.4 218.7,32.4 V186.0 Z"/></g><g class="col" data-tip="декабрь 2017: 0,84 млн"><rect class="hit" x="220.3" y="22" width="17.3" height="164"/><path class="bar" d="M222.0,186.0 V74.8 Q222.0,70.8 226.0,70.8 H232.0 Q236.0,70.8 236.0,74.8 V186.0 Z"/></g><g class="col" data-tip="январь 2018: 1,08 млн"><rect class="hit" x="237.6" y="22" width="17.3" height="164"/><path class="bar" d="M239.3,186.0 V42.7 Q239.3,38.7 243.3,38.7 H249.3 Q253.3,38.7 253.3,42.7 V186.0 Z"/></g><text x="246.3" y="202" text-anchor="middle">янв 18</text><g class="col" data-tip="февраль 2018: 0,97 млн"><rect class="hit" x="254.9" y="22" width="17.3" height="164"/><path class="bar" d="M256.6,186.0 V58.0 Q256.6,54.0 260.6,54.0 H266.6 Q270.6,54.0 270.6,58.0 V186.0 Z"/></g><g class="col" data-tip="март 2018: 1,12 млн"><rect class="hit" x="272.2" y="22" width="17.3" height="164"/><path class="bar" d="M273.9,186.0 V36.9 Q273.9,32.9 277.9,32.9 H283.9 Q287.9,32.9 287.9,36.9 V186.0 Z"/></g><g class="col" data-tip="апрель 2018: 1,13 млн"><rect class="hit" x="289.5" y="22" width="17.3" height="164"/><path class="bar" d="M291.1,186.0 V35.2 Q291.1,31.2 295.1,31.2 H301.1 Q305.1,31.2 305.1,35.2 V186.0 Z"/></g><g class="col" data-tip="май 2018: 1,13 млн"><rect class="hit" x="306.8" y="22" width="17.3" height="164"/><path class="bar" d="M308.4,186.0 V35.7 Q308.4,31.7 312.4,31.7 H318.4 Q322.4,31.7 322.4,35.7 V186.0 Z"/></g><g class="col" data-tip="июнь 2018: 1,01 млн"><rect class="hit" x="324.1" y="22" width="17.3" height="164"/><path class="bar" d="M325.8,186.0 V51.7 Q325.8,47.7 329.8,47.7 H335.8 Q339.8,47.7 339.8,51.7 V186.0 Z"/></g><g class="col" data-tip="июль 2018: 1,03 млн"><rect class="hit" x="341.4" y="22" width="17.3" height="164"/><path class="bar" d="M343.1,186.0 V49.5 Q343.1,45.5 347.1,45.5 H353.1 Q357.1,45.5 357.1,49.5 V186.0 Z"/></g><g class="col" data-tip="август 2018: 0,99 млн"><rect class="hit" x="358.7" y="22" width="17.3" height="164"/><path class="bar" d="M360.3,186.0 V55.3 Q360.3,51.3 364.3,51.3 H370.3 Q374.3,51.3 374.3,55.3 V186.0 Z"/></g><text x="367.3" y="202" text-anchor="middle">авг</text><text class="lbl" x="211.7" y="21.4" text-anchor="middle">1,15 млн</text><text x="33" y="14">млн реалов</text></svg>
+            <p class="fig-note">Январь–август 2018 — 8,45 млн против 3,47 млн годом раньше: <b>рост в 2,4 раза</b>. Пик — ноябрь 2017, Black Friday.</p>
+            <details class="data"><summary>таблица значений</summary><table><tr><td>январь 2017</td><td>0,13 млн</td></tr><tr><td>февраль 2017</td><td>0,27 млн</td></tr><tr><td>март 2017</td><td>0,41 млн</td></tr><tr><td>апрель 2017</td><td>0,39 млн</td></tr><tr><td>май 2017</td><td>0,57 млн</td></tr><tr><td>июнь 2017</td><td>0,49 млн</td></tr><tr><td>июль 2017</td><td>0,57 млн</td></tr><tr><td>август 2017</td><td>0,65 млн</td></tr><tr><td>сентябрь 2017</td><td>0,70 млн</td></tr><tr><td>октябрь 2017</td><td>0,75 млн</td></tr><tr><td>ноябрь 2017</td><td>1,15 млн</td></tr><tr><td>декабрь 2017</td><td>0,84 млн</td></tr><tr><td>январь 2018</td><td>1,08 млн</td></tr><tr><td>февраль 2018</td><td>0,97 млн</td></tr><tr><td>март 2018</td><td>1,12 млн</td></tr><tr><td>апрель 2018</td><td>1,13 млн</td></tr><tr><td>май 2018</td><td>1,13 млн</td></tr><tr><td>июнь 2018</td><td>1,01 млн</td></tr><tr><td>июль 2018</td><td>1,03 млн</td></tr><tr><td>август 2018</td><td>0,99 млн</td></tr></table></details>
+          </figure>
+        </div>
+
+        <p class="body"><span class="lab">Нашла</span>Доставка из своего штата в 2 раза быстрее (7,9 против 15,0 дня), но в четырёх штатах Северо-Востока и Севера нет ни одного продавца. <b>Настоящий repeat rate — 2,85%, а не 3,1%</b>; опоздание первого заказа снижает повторные покупки примерно на 18%, но и при доставке вовремя возвращаются меньше 3% — удержание не только про логистику. Двойной подсчёт при JOIN завышал выручку на 4–34%.</p>
+        <p class="body"><span class="lab">Предложила</span>Пересчитать обещанный срок доставки по регионам; привлекать местных продавцов на Северо-Востоке; считать повторные покупки по моментам покупки, а не по заказам.</p>
+        <p class="body"><a href="https://github.com/rozzhalovetsolga/analyst_portfolio/tree/main/olist_sql">Код, выводы и рекомендации на GitHub</a></p>
+      </article>
+
+      <article class="case">
+        <div class="case-top">
+          <h3><a href="https://rozzhalovetsolga.github.io/divorce-atlas/">Почему люди разводятся: атлас разводов</a></h3>
+          <span class="tag">открытые данные · 2026</span>
+        </div>
+        <p class="where mono">116 стран · Беларусь по областям · 50 штатов США · 200+ исследований</p>
+        <p class="body"><span class="lab">Вопрос</span>Где и почему разводятся чаще — и как объяснить это обычным людям коротко и с доказательствами.</p>
+        <p class="body"><span class="lab">Сделала</span>Собрала свежие данные статслужб за 2024–2025 годы (Белстат, Eurostat, US Census, CDC, Всемирный банк, ВОЗ), посчитала риск развода по стажу брака для двух десятков стран Европы, корреляции и цепочки причин, сделала картограммы и интерактивную страницу.</p>
+        <p class="body"><span class="lab">Нашла</span>В Беларуси — <b>67 разводов на 100 свадеб</b>. Опаснее всего 2–6-й год брака, но половина разводов случается позже 12 лет. «Протестантизм сохраняет брак» — миф: защищает личная религиозность, а не конфессия страны.</p>
+        <p class="body"><a href="https://rozzhalovetsolga.github.io/divorce-atlas/">Смотреть проект</a> · <a href="https://github.com/rozzhalovetsolga/divorce-atlas">Код и данные</a></p>
+      </article>
+
+      <article class="case">
+        <div class="case-top">
+          <h3>Дальше в работе</h3>
+          <span class="tag">план</span>
+        </div>
+        <p class="body">Дашборд по данным Olist в Power BI · когорты, LTV и анализ A/B-теста на данных iGaming (Python, SQL).</p>
+      </article>
+
     </div>
   </section>
 
   <section>
     <div class="head">
-      <h2>Что умею</h2>
+      <h2>Опыт</h2>
+      <p>Сначала работа с данными, ниже — предыдущий опыт коротко.</p>
+    </div>
+
+    <div class="cases">
+
+      <article class="case">
+        <div class="case-top">
+          <h3>BCH Labs: аналитик данных и руководитель проекта</h3>
+          <span class="tag">1 год 6 мес · 03.2025 — 09.2026</span>
+        </div>
+        <p class="where mono">торговый бот на блокчейне Solana · поток on-chain событий и история за месяцы торгов · ClickHouse (кластер с шардированием), PostgreSQL, Python, Grafana · команда до 5 человек</p>
+
+        <h5>Хранилище и витрины</h5>
+        <p class="body">Команде нужна была единая история, на которой воспроизводимо считаются признаки и бэктесты.</p>
+        <ul class="pts">
+          <li>Вела структуру таблиц, репарсинг сырых транзакций в события и дозагрузку пропущенных периодов по эпохам (ETL)</li>
+          <li>Писала миграции и DDL: таблицы признаков, разметки кошельков, рыночных метрик</li>
+          <li>Собрала витрину рыночных метрик по эпохам; нашла методологическую ошибку в метрике, которая показывала 103,5%, и заменила источник данных</li>
+        </ul>
+
+        <h5>Дашборды</h5>
+        <p class="body">Результаты торговли и состояние рынка нужно было видеть без ручных выгрузок.</p>
+        <ul class="pts">
+          <li><b>Три дашборда в Grafana, 35 панелей:</b> анализ торговой сессии, paper-trading, здоровье рынка — все метрики считаются SQL-запросами, конфигурация через API</li>
+          <li>Починила кросс-табличные джойны на распределённых таблицах: 28 панелей вернулись из состояния No data</li>
+        </ul>
+
+        <h5>Классификатор кошельков</h5>
+        <p class="body">Выделить из потока событий кошельки, чьи сделки имеет смысл копировать.</p>
+        <ul class="pts">
+          <li>SQL-пайплайн из 12 шагов: PnL по токенам, детект ботов, агрегация статистики, классификация, фильтры, граф переводов</li>
+          <li>Признаки на реализованном PnL: win rate, profit factor, композитный skill score</li>
+          <li>Кросс-проверка разметки через внешний API — <b>0,5% ложных срабатываний</b></li>
+        </ul>
+
+        <h5>Проверка гипотез</h5>
+        <ul class="pts">
+          <li>A/B/C/D-тест параметров исполнения и форвард-тест на 9 торговых сессиях (~780 сделок)</li>
+          <li><b>Четыре гипотезы роста доходности закрыты количественно</b> — команда не потратила месяцы на ложные направления</li>
+        </ul>
+
+        <h5>Управление проектом</h5>
+        <p class="body">Параллельно вела команду: недельные спринты с целями по результату, бюджет через трекинг часов по каждому исполнителю, найм трёх ролей полным циклом.</p>
+      </article>
+
+      <article class="case">
+        <div class="case-top">
+          <h3>Картографическое предприятие: картограф-редактор</h3>
+          <span class="tag">1 год 8 мес · 08.2023 — 04.2025</span>
+        </div>
+        <p class="body">Работа с геоданными: контроль точности и согласованности, вычитка картографической продукции перед выпуском.</p>
+      </article>
+
+      <article class="case">
+        <div class="case-top">
+          <h3>Ранее: операционка и управление</h3>
+          <span class="tag">2016 — 2025</span>
+        </div>
+        <p class="body">2023—2025 — бизнес-ассистент основателя студии премиального ремонта <a href="https://etico.by">ETICO.BY</a>: сметы, закупки, люди, платежи.<br>
+        2024—2025 — техническое ведение психологических групп: GetCourse, Zoom, контроль оплат.<br>
+        2023 — ассистент по контенту и продакшену онлайн-курса.<br>
+        2022—2023 — преподаватель картографических дисциплин, БГУ.<br>
+        2016—2019 — ассистент руководителя онлайн-школы CT-EXPRESS: школа выросла с одного предмета до трёх.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="head">
+      <h2>Навыки</h2>
       <p>Шесть групп задач аналитика — от вопроса заказчика до вывода.</p>
     </div>
 
@@ -495,86 +646,6 @@
 
   <section>
     <div class="head">
-      <h2>Проекты</h2>
-      <p>Собственные исследования на реальных и открытых данных — от вопроса до вывода.</p>
-    </div>
-
-    <div class="cases">
-
-      <article class="case">
-        <div class="case-top">
-          <h3>SQL-анализ маркетплейса Olist</h3>
-          <span class="tag">pet-проект · 2026 · в работе</span>
-        </div>
-        <p class="where mono">~100 тыс. заказов · 9 связанных таблиц · PostgreSQL · весь SQL написан вручную</p>
-        <p class="body"><span class="lab">Задача</span>Разобраться, что мешает бразильскому маркетплейсу удерживать покупателей: доставка, продавцы или сам продукт.</p>
-        <p class="body"><span class="lab">Сделала</span>Спроектировала схему с первичными и внешними ключами, загрузила данные Kaggle и нашла проблемы качества: неуникальный ID отзывов, неполный справочник категорий, доставленные заказы без даты доставки, обрыв выгрузки. Считала метрики с JOIN, подзапросами, CTE и оконными функциями, каждую цифру проверяла вторым способом.</p>
-        <p class="body"><span class="lab">Нашла</span>Опоздание отнимает <b>2 балла оценки из 5</b>, а опоздания определяет запас в обещанном сроке по регионам, а не расстояние. Одна корзина дробится на несколько заказов, поэтому <b>настоящий repeat rate — 2,85%, а не 3,1%</b>; опоздание первого заказа снижает повторные покупки примерно на 18%. Двойной подсчёт при JOIN завышал выручку на 4–34% и утраивал список «плохих» продавцов.</p>
-        <p class="body"><span class="lab">Предложила</span>Пересчитать обещанный срок доставки по регионам; привлекать местных продавцов на Северо-Востоке, где в четырёх штатах нет ни одного продавца; считать повторные покупки по моментам покупки, а не по заказам.</p>
-        <p class="body"><a href="https://github.com/rozzhalovetsolga/analyst_portfolio/tree/main/olist_sql">Код, выводы и рекомендации</a></p>
-      </article>
-
-      <article class="case">
-        <div class="case-top">
-          <h3><a href="https://rozzhalovetsolga.github.io/divorce-atlas/">Почему люди разводятся: атлас разводов</a></h3>
-          <span class="tag">анализ данных · 2026</span>
-        </div>
-        <p class="where mono">116 стран · Беларусь по областям · 50 штатов США · 200+ исследований</p>
-        <p class="body"><span class="lab">Задача</span>Понять, где и почему разводятся чаще, и объяснить это обычным людям — коротко и с доказательствами.</p>
-        <p class="body"><span class="lab">Сделала</span>Собрала свежие данные статслужб за 2024–2025 годы (Белстат, Eurostat, US Census, CDC, Всемирный банк, ВОЗ), посчитала риск развода по стажу брака для двух десятков стран Европы, корреляции и цепочки причин, сделала картограммы и интерактивную страницу.</p>
-        <p class="body"><span class="lab">Нашла</span>В Беларуси — <b>67 разводов на 100 свадеб</b>. Опаснее всего 2–6-й год брака, но половина разводов случается позже 12 лет. «Протестантизм сохраняет брак» — миф: защищает личная религиозность, а не конфессия страны.</p>
-        <p class="body"><a href="https://rozzhalovetsolga.github.io/divorce-atlas/">Смотреть проект</a> · <a href="https://github.com/rozzhalovetsolga/divorce-atlas">Код и данные</a></p>
-      </article>
-
-    </div>
-  </section>
-
-  <section>
-    <div class="head">
-      <h2>Опыт</h2>
-      <p>Сначала работа с данными, ниже — предыдущий опыт коротко.</p>
-    </div>
-
-    <div class="cases">
-
-      <article class="case">
-        <div class="case-top">
-          <h3>BCH Labs: аналитик данных и руководитель проекта</h3>
-          <span class="tag">1 год 6 мес · 03.2025 — 09.2026</span>
-        </div>
-        <p class="where mono">торговый бот на блокчейне Solana · поток on-chain событий и история за месяцы торгов · ClickHouse, PostgreSQL, Python, Grafana</p>
-        <p class="body"><span class="lab">Данные</span>Отвечала за хранилище истории, на котором считаются признаки и бэктесты: структура таблиц, репарсинг транзакций, дозагрузка периодов. Писала SQL и миграции. Сделала витрину рыночных метрик по эпохам.</p>
-        <p class="body"><span class="lab">Дашборды</span>Собрала <b>три дашборда, 35 панелей</b>: анализ торговой сессии, paper-trading, здоровье рынка. Все метрики считаются запросами к базе, без ручных выгрузок.</p>
-        <p class="body"><span class="lab">Исследования</span>Построила SQL-пайплайн классификации кошельков с признаками win rate, profit factor и skill score — кросс-проверка через внешний API дала <b>0,5% ложных срабатываний</b>. <b>Закрыла четыре гипотезы роста доходности количественно</b>, включая A/B/C/D-тест параметров исполнения: команда не потратила месяцы на ложные направления.</p>
-        <p class="body"><span class="lab">Проект</span>Параллельно вела команду до 5 человек: недельные спринты с целями по результату, бюджет через трекинг часов, найм трёх ролей полным циклом.</p>
-      </article>
-
-      <article class="case">
-        <div class="case-top">
-          <h3>Картографическое предприятие: картограф-редактор</h3>
-          <span class="tag">1 год 8 мес · 08.2023 — 04.2025</span>
-        </div>
-        <p class="where mono">обязательная отработка по распределению · геоданные</p>
-        <p class="body"><span class="lab">Делала</span>Редактировала картографическую продукцию: работа с геоданными, контроль точности и согласованности, вычитка перед выпуском.</p>
-      </article>
-
-      <article class="case">
-        <div class="case-top">
-          <h3>Ранее: операционка и ассистирование</h3>
-          <span class="tag">2016 — 2025</span>
-        </div>
-        <p class="body">2023—2025 — бизнес-ассистент основателя студии премиального ремонта <a href="https://etico.by">ETICO.BY</a>: сметы, закупки, люди, платежи.<br>
-        2024—2025 — техническое ведение психологических групп: GetCourse, Zoom, контроль оплат.<br>
-        2023 — ассистент по контенту и продакшену онлайн-курса.<br>
-        2022—2023 — преподаватель картографических дисциплин, БГУ.<br>
-        2016—2019 — ассистент руководителя онлайн-школы CT-EXPRESS: школа выросла с одного предмета до трёх.</p>
-      </article>
-
-    </div>
-  </section>
-
-  <section>
-    <div class="head">
       <h2>Образование и курсы</h2>
       <p>Профильное образование — географическое, с математической обработкой измерений. Аналитику добирала курсом и практикой.</p>
     </div>
@@ -600,73 +671,48 @@
     </div>
   </section>
 
-  <section>
+  <section id="cv">
     <div class="head">
-      <h2>О себе</h2>
-      <p>Четыре эпизода не из резюме — они объясняют, как я работаю, когда никто не стоит над душой.</p>
+      <h2>Резюме</h2>
+      <p>Резюме аналитика данных: русская и английская версии, PDF, одна страница.</p>
     </div>
 
-    <div class="about">
-      <div class="note">
-        <b>Rust с нуля</b>
-        <span>Пришла в блокчейн-разработку из картографии и выучила язык, на котором пишет команда. Мне мало вести календарь проекта: я разбираюсь в предмете, поэтому вижу, из чего состоит задача и почему сдвигается срок.</span>
-      </div>
-      <div class="note">
-        <b>19 → 91 балл на ЦТ за год</b>
-        <span>Подняла результат по русскому и поступила в ведущий вуз страны. Разрыв закрыла дисциплиной и режимом — так же закрываю задачи, к которым не было готового навыка.</span>
-      </div>
-      <div class="note">
-        <b>Три работы одновременно</b>
-        <span>Полтора года совмещала обязательную отработку по распределению и два ассистентства: студия ремонта, психологические группы и основная работа — каждая со своим ритмом и своими людьми.</span>
-      </div>
-      <div class="note">
-        <b>60 дней бега без пропусков</b>
-        <span>Подъём в 5:45, от 3 до 11 километров, с публичной отчётностью. Это про предсказуемость: если я взяла задачу, её не нужно перепроверять. Из этого же хобби собрала свой первый инфопродукт — онлайн-марафон.</span>
+    <div class="cv">
+      <div class="cv-card">
+        <h3>Data Analyst</h3>
+        <p>SQL в PostgreSQL и ClickHouse, Python, дашборды, хранилище и витрины, проверка гипотез. Pet-проект на данных маркетплейса Olist.</p>
+        <div class="files">
+          <a class="file" href="olga-resume-bigdata.pdf">PDF · RU</a>
+          <a class="file" href="olga-resume-bigdata-en.pdf">PDF · EN</a>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
     <div class="head">
-      <h2>Отзывы</h2>
-      <p>Руководители и клиенты — своими словами, из переписок и сторис.</p>
+      <h2>Как я работаю</h2>
+      <p>Два эпизода, которые объясняют, как я учусь новому, и отзывы руководителей.</p>
     </div>
-
-    <div class="quotes">
-
-      <div class="quote">
-        <p>«Почему каждый месяц ты выбираешь работать со мной? Я продолжаю работать, так как знаю, что ты очень редкий человек, с которым мне комфортно, и я знаю, что за этими "рамками", как ты говоришь, есть большое количество черт: честность, вежливость, готовность помочь, развитие, цели, дисциплина, выдержка границ личного пространства и уважение друг друга. И в работе ты очень хороший коллега, на которого можно действительно положиться и доверить. Знаю, что ты доведёшь некоторые задачи, порой очень сложные, без меня и без ответов, которые тебе очень нужны.»</p>
-        <p class="who"><b>Основатель студии ETICO.BY</b><span>премиальный ремонт · 22 декабря 2024</span></p>
+    <div class="about">
+      <div class="note">
+        <b>Rust с нуля</b>
+        <span>Пришла в блокчейн-разработку из картографии и выучила язык, на котором пишет команда. Мне мало вести календарь проекта: я разбираюсь в предмете, поэтому вижу, из чего состоит задача.</span>
       </div>
-
+      <div class="note">
+        <b>19 → 91 балл на ЦТ за год</b>
+        <span>Подняла результат по русскому и поступила в ведущий вуз страны. Разрыв закрыла дисциплиной и режимом — так же закрываю задачи, к которым не было готового навыка.</span>
+      </div>
+    </div>
+    <div class="quotes" style="margin-top:12px">
       <div class="quote">
         <p>«К каждой задаче ты относилась очень ответственно и серьёзно. Часто серьёзнее и ответственнее, чем я сам. Глубоко изучала всю информацию, делала отличную подготовку. Изучала инструменты глубже, чем я знаю их сам, чтобы результат был лучше, чем я ожидал. Мне не хватало технических знаний — ты же их осваивала и применяла, что очень ценно. Работой с тобой я очень сильно доволен и буду в будущем точно под некоторые задачи к тебе обращаться.»</p>
         <p class="who"><b>Руководитель проекта</b><span>инфобизнес</span></p>
       </div>
-
       <div class="quote">
-        <p>«Оля — очень ответственная, трудолюбивая и целеустремлённая девушка. Вместе придумывали творческие задания по русскому и биологии, разрабатывали дизайн, составляли тесты, проводили много времени вместе. Спасибо за прекрасное время совместной работы.»</p>
-        <p class="who"><b>Руководитель онлайн-школы</b><span>CT-EXPRESS</span></p>
+        <p>«Почему каждый месяц ты выбираешь работать со мной? Я продолжаю работать, так как знаю, что ты очень редкий человек, с которым мне комфортно, и я знаю, что за этими "рамками", как ты говоришь, есть большое количество черт: честность, вежливость, готовность помочь, развитие, цели, дисциплина, выдержка границ личного пространства и уважение друг друга. И в работе ты очень хороший коллега, на которого можно действительно положиться и доверить. Знаю, что ты доведёшь некоторые задачи, порой очень сложные, без меня и без ответов, которые тебе очень нужны.»</p>
+        <p class="who"><b>Основатель студии ETICO.BY</b><span>премиальный ремонт · 22 декабря 2024</span></p>
       </div>
-
-      <div class="quote">
-        <p>«Оля, спасибо большое за работу! Завтра ещё активнее подключаемся, в выходные отдыхаем.»</p>
-        <p class="who"><b>Ася Тарасова</b><span>инфобизнес · 22 декабря 2023</span></p>
-      </div>
-
-      <div class="quote">
-        <p>«Кстати, спасибо тебе огромное. Ты даже не понимаешь до конца, как ты мне помогаешь.»</p>
-        <p class="who"><b>Клиент</b><span>психологические группы · 17 ноября 2024</span></p>
-      </div>
-
-    </div>
-
-    <div class="shots">
-      <a class="shot" href="review-ctexpress.jpg"><img src="review-ctexpress.jpg" alt="Отзыв руководителя онлайн-школы CT-EXPRESS" loading="lazy" width="800" height="1313"><span>CT-EXPRESS</span></a>
-      <a class="shot" href="review-infobiz.jpg"><img src="review-infobiz.jpg" alt="Отзыв руководителя проекта в инфобизнесе" loading="lazy" width="800" height="1313"><span>Инфобизнес</span></a>
-      <a class="shot" href="review-asya.jpg"><img src="review-asya.jpg" alt="Сообщение от Аси Тарасовой" loading="lazy" width="800" height="1313"><span>Ася Тарасова</span></a>
-      <a class="shot" href="review-etico.jpg"><img src="review-etico.jpg" alt="Отзыв основателя студии ETICO.BY" loading="lazy" width="800" height="1313"><span>ETICO.BY</span></a>
-      <a class="shot" href="review-psy.jpg"><img src="review-psy.jpg" alt="Благодарность клиента психологических групп" loading="lazy" width="800" height="1313"><span>Психогруппы</span></a>
     </div>
   </section>
 
@@ -680,7 +726,7 @@
       <a class="pill pill-solid" href="https://t.me/bolik_olik">@bolik_olik</a>
       <a class="pill" href="tel:+375292942182">+375 29 294-21-82</a>
       <a class="pill" href="mailto:oljadamovna@gmail.com">oljadamovna@gmail.com</a>
-      <a class="pill" href="https://github.com/rozzhalovetsolga">github.com/rozzhalovetsolga</a>
+      <a class="pill" href="https://github.com/rozzhalovetsolga/analyst_portfolio">GitHub: проекты</a>
       <a class="pill" href="https://www.linkedin.com/in/olga-rozzhalovets-52967a2a3">LinkedIn</a>
     </div>
 
@@ -688,5 +734,18 @@
   </footer>
 
 </div>
+<script>
+document.querySelectorAll('.cols').forEach(function (fig) {
+  var tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true; fig.appendChild(tip);
+  fig.querySelectorAll('g.col').forEach(function (g) {
+    g.addEventListener('mousemove', function (e) {
+      var r = fig.getBoundingClientRect();
+      tip.textContent = g.getAttribute('data-tip'); tip.hidden = false;
+      tip.style.left = (e.clientX - r.left) + 'px'; tip.style.top = (e.clientY - r.top) + 'px';
+    });
+    g.addEventListener('mouseleave', function () { tip.hidden = true; });
+  });
+});
+</script>
 </body>
 </html>
