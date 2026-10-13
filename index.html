@@ -404,6 +404,10 @@
   .fig { background: var(--bg-deep); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 16px 16px 12px; position: relative; }
   .fig h4 { font-size: 14px; font-weight: 600; margin: 0 0 2px; letter-spacing: -0.01em; }
   .fig .sub { font-size: 12.5px; color: var(--muted); margin: 0 0 14px; }
+  .fig table.contrast { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .fig table.contrast th { text-align: left; font-weight: 500; color: var(--muted); font-size: 12.5px; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line); }
+  .fig table.contrast td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); color: var(--ink-dim); font-variant-numeric: tabular-nums; }
+  .fig table.contrast td:nth-child(2) { color: var(--ink); font-weight: 600; }
   .fig img.shot { width: 100%; height: auto; display: block; border-radius: 6px; }
   .fig .fig-note { font-size: 12.5px; color: var(--ink-dim); margin-top: 10px; }
 
@@ -601,6 +605,27 @@
           <li>Нашла ложное срабатывание правила «бот» и вернула в выборку <b>163 сильных трейдера (+14%)</b>; участвовала в обучении моделей LightGBM</li>
           <li>Сверка разметки с внешним API — <b>0,5% расхождений</b></li>
         </ul>
+
+        <div class="figs">
+          <figure class="fig" style="margin:0; grid-column: 1 / -1">
+            <h4>На какие типы делятся 6,1 млн кошельков</h4>
+            <p class="sub">разметка за эпохи 959–990; слева — типы без обычных пользователей и снайперов, справа — все типы с долями</p>
+            <img class="shot" src="bch-wallet-types.png" alt="Распределение кошельков по типам: обычные 76%, снайперы 22,3%, боты 72 703, крупные игроки 26 746, сильные трейдеры 2 891, мошенники 178" width="1576" height="335">
+            <p class="fig-note">Кого стоит копировать — <b>2 891 кошелёк, 0,05%</b>. Сегмент узкий, поэтому каждое правило отбора проверяла на данных: одно ложное срабатывание вырезало 163 сильных трейдера.</p>
+          </figure>
+          <figure class="fig" style="margin:0; grid-column: 1 / -1">
+            <h4>Чем сильные трейдеры отличаются от обычных</h4>
+            <p class="sub">средние по типу; 2 891 сильный трейдер против 4,6 млн обычных кошельков</p>
+            <table class="contrast">
+              <tr><th>признак</th><th>сильные</th><th>обычные</th></tr>
+              <tr><td>доля сделок в плюс</td><td>40,7%</td><td>13,0%</td></tr>
+              <tr><td>реализованная прибыль, SOL</td><td>+29,4</td><td>−0,37</td></tr>
+              <tr><td>закрывают позицию полностью</td><td>94%</td><td>0,7%</td></tr>
+              <tr><td>плата за приоритет исполнения</td><td>в ~230 раз выше</td><td>—</td></tr>
+            </table>
+            <p class="fig-note">Сильные трейдеры отличаются не удачей, а дисциплиной: доводят сделку до конца и платят за скорость.</p>
+          </figure>
+        </div>
 
         <h5>Проверка гипотез</h5>
         <ul class="pts">
