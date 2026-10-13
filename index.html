@@ -404,6 +404,7 @@
   .fig { background: var(--bg-deep); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 16px 16px 12px; position: relative; }
   .fig h4 { font-size: 14px; font-weight: 600; margin: 0 0 2px; letter-spacing: -0.01em; }
   .fig .sub { font-size: 12.5px; color: var(--muted); margin: 0 0 14px; }
+  .fig img.shot { width: 100%; height: auto; display: block; border-radius: 6px; }
   .fig .fig-note { font-size: 12.5px; color: var(--ink-dim); margin-top: 10px; }
 
   .hbars { display: grid; gap: 12px; }
@@ -576,6 +577,22 @@
           <li>Пересчитала recall модели на реальный знаменатель — 0,45% вместо 2% — и юнит-экономику бота: доход против расходов команды, точка безубыточности</li>
           <li>Падение рынка в июле 2025 года оказалось уходом пользователей к конкуренту, а метрика 103,5% — ошибкой в числителе</li>
         </ul>
+
+        <div class="figs">
+          <figure class="fig" style="margin:0">
+            <h4>Насколько вырастает цена токена</h4>
+            <p class="sub">максимальный рост от цены запуска, ~2 млн токенов, 17 апреля — 4 июля 2026</p>
+            <img class="shot" src="bch-price-growth.png" alt="Гистограмма максимального роста цены токенов: 39% растут меньше чем в 1,1 раза, ещё 39% — от 1,1 до 2 раз, 11 раз и больше — 2,2%" width="776" height="360">
+            <p class="fig-note"><b>79% токенов</b> не вырастают даже вдвое; в 11 раз и больше — 2,2%. Рынок — лотерея с длинным хвостом.</p>
+          </figure>
+          <figure class="fig" style="margin:0">
+            <h4>За сколько токен доходит до листинга</h4>
+            <p class="sub">время от запуска до листинга на бирже, токены-выпускники</p>
+            <img class="shot" src="bch-time-to-listing.png" alt="Гистограмма времени до листинга: 41% быстрее 5 минут, 20% за 5–15 минут, 7% дольше 12 часов" width="780" height="360">
+            <p class="fig-note"><b>41% выпускников</b> доходят до листинга быстрее чем за 5 минут — на решение у бота считанные секунды.</p>
+          </figure>
+        </div>
+        <p style="margin:-6px 0 4px; font-size:12.5px; color:var(--muted)">Панели из дашборда «Здоровье рынка», который я собрала в Grafana в BCH Labs; данные — публичные транзакции блокчейна Solana.</p>
 
         <h5>Классификация пользователей</h5>
         <p class="body">Найти кошельки, чьи сделки имеет смысл копировать.</p>
